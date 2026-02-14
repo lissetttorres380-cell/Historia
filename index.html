@@ -6,13 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --azul:#1d3557;
-  --azul2:#457b9d;
-  --verde:#2ecc71;
-  --naranja:#f4a261;
-}
-
 *{
   margin:0;
   padding:0;
@@ -29,48 +22,55 @@ header{
   background: linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
   color:white;
   text-align:center;
-  padding:15px;
-}
-
-/* ================= BIENVENIDA ================= */
-.bienvenida{
-  position:fixed;
-  inset:0;
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-.bienvenida .box{
-  background:rgba(255,255,255,0.15);
-  padding:50px;
-  border-radius:20px;
-  text-align:center;
-  color:white;
-}
-
-.bienvenida button{
-  margin-top:20px;
-  padding:15px 35px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#43e97b,#38f9d7);
-  font-weight:bold;
-  cursor:pointer;
+  padding:20px;
 }
 
 /* ================= BANNER ================= */
 .banner{
   position:relative;
-  text-align:center;
+  width:100%;
+  overflow:hidden;
 }
 
 .banner img.fondo{
   width:100%;
-  height:auto;
+  display:block;
 }
+
+/* ================= BOTONES SOBRE EL BANNER ================= */
+.botones{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  z-index:5;
+  width:60%;
+}
+
+.btn{
+  padding:18px;
+  font-size:20px;
+  font-weight:bold;
+  border-radius:40px;
+  text-align:center;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* Colores */
+.inicio{background:linear-gradient(135deg,#4facfe,#00f2fe);}
+.videos{background:linear-gradient(135deg,#f4a261,#ffd166); color:#000;}
+.juegos{background:linear-gradient(135deg,#2ecc71,#80ed99);}
+.certificado{background:linear-gradient(135deg,#9b5de5,#f15bb5);}
 
 /* ================= LOGOS Y PERSONAJES ================= */
 .logo,
@@ -83,76 +83,25 @@ header{
 .logo{
   top:20px;
   left:20px;
-  width:120px;
+  width:110px;
 }
 
 .logohistoria{
   top:20px;
   right:20px;
-  width:150px;
+  width:140px;
 }
 
 .nino{
   bottom:0;
   left:5%;
-  width:120px;
+  width:110px;
 }
 
 .nina{
   bottom:0;
   right:5%;
-  width:120px;
-}
-
-/* ================= BOTONES ================= */
-.botones{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  padding:40px 20px;
-  max-width:900px;
-  margin:0 auto;
-}
-
-.btn{
-  padding:20px;
-  font-size:20px;
-  font-weight:bold;
-  border-radius:40px;
-  text-align:center;
-  color:white;
-  cursor:pointer;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:translateY(-5px);
-}
-
-.inicio{background:linear-gradient(135deg,#4facfe,#00f2fe);}
-.videos{background:linear-gradient(135deg,#f4a261,#ffd166); color:#000;}
-.juegos{background:linear-gradient(135deg,#2ecc71,#80ed99);}
-.certificado{background:linear-gradient(135deg,#9b5de5,#f15bb5);}
-
-/* ================= CERTIFICADO ================= */
-.certificado-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.certificado-box{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  max-width:600px;
-  width:100%;
-  text-align:center;
+  width:110px;
 }
 
 /* ================= FOOTER ================= */
@@ -160,33 +109,24 @@ footer{
   background: linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
   color:white;
   text-align:center;
-  padding:10px;
-  margin-top:30px;
+  padding:15px;
 }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-  .logo,
-  .logohistoria{
-    width:90px;
+  .botones{
+    width:90%;
+    gap:15px;
   }
-  .nino,
-  .nina{
-    width:90px;
+  .btn{
+    font-size:16px;
+    padding:12px;
   }
 }
 </style>
 </head>
 
 <body>
-
-<div class="bienvenida" id="bienvenida">
-  <div class="box">
-    <h1>📜 HISTORIA DIGITAL</h1>
-    <p>Plataforma Interactiva 1ero BGU</p>
-    <button onclick="cerrarBienvenida()">🚀 Comenzar</button>
-  </div>
-</div>
 
 <header>
   <h1>Historia Digital – 1ero BGU</h1>
@@ -195,31 +135,27 @@ footer{
 <section class="banner">
   <img src="INICIO.png" class="fondo">
 
+  <!-- BOTONES ENCIMA -->
+  <div class="botones">
+    <div class="btn inicio" onclick="location.href='INICIO.html'">Inicio</div>
+    <div class="btn videos" onclick="location.href='Sonido/VIDEOS/VIDEO.html'">Videos</div>
+    <div class="btn juegos" onclick="window.open('Juego.html','_blank')">Juegos</div>
+    <div class="btn certificado" onclick="generarCertificado()">Certificado</div>
+  </div>
+
+  <!-- Logos y personajes -->
   <img src="Logo1.png" class="logo">
   <img src="LOGOHISTORIA.png" class="logohistoria">
   <img src="nino.png" class="nino">
   <img src="nina.png" class="nina">
+
 </section>
 
-<div class="botones">
-  <div class="btn inicio" onclick="location.href='INICIO.html'">Inicio</div>
-  <div class="btn videos" onclick="location.href='Sonido/VIDEOS/VIDEO.html'">Videos</div>
-  <div class="btn juegos" onclick="window.open('Juego.html','_blank')">Juegos</div>
-  <div class="btn certificado" onclick="generarCertificado()">Certificado</div>
-</div>
-
-<footer>© 2026 – Historia Digital</footer>
-
-<!-- CERTIFICADO -->
-<div class="certificado-modal" id="certificado">
-  <div class="certificado-box" id="datosCertificado"></div>
-</div>
+<footer>
+  © 2026 – Historia Digital
+</footer>
 
 <script>
-function cerrarBienvenida(){
-  document.getElementById("bienvenida").style.display="none";
-}
-
 function generarCertificado(){
   const nombre = prompt("Ingrese el nombre del estudiante:");
   if(!nombre) return;
@@ -227,23 +163,7 @@ function generarCertificado(){
   const curso = prompt("Ingrese el curso:");
   if(!curso) return;
 
-  document.getElementById("datosCertificado").innerHTML = `
-    <h2>📜 CERTIFICADO DE LOGRO</h2>
-    <p>Se otorga a:</p>
-    <h3>${nombre}</h3>
-    <p>Curso: <strong>${curso}</strong></p>
-    <p>Por completar satisfactoriamente la plataforma Historia Digital.</p>
-    <br>
-    <button onclick="window.print()">🖨 Imprimir</button>
-    <br><br>
-    <button onclick="cerrarCertificado()">Cerrar</button>
-  `;
-
-  document.getElementById("certificado").style.display="flex";
-}
-
-function cerrarCertificado(){
-  document.getElementById("certificado").style.display="none";
+  alert("Certificado generado para " + nombre + " - " + curso);
 }
 </script>
 
