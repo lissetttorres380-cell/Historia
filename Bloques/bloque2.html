@@ -14,12 +14,10 @@ body{
   background:linear-gradient(135deg,#eef2f7,#e3edf3);
 }
 
+
 html, body{
   overflow-x:hidden;
 }
-
-
-
 
 /* HEADER */
 header{
@@ -1505,14 +1503,18 @@ summary::-webkit-details-marker {
 }
 
 .item-summary {
- 
-  color: #000; /* negro */
-
+position: relative;
+  cursor: pointer;
+  padding: 18px;
+  font-size: 18px;
+  list-style: none;
+  color: #000;
 }
 
 .item-summary:hover .arrow {
   transform: translateX(4px);
 }
+
 
 
 
@@ -1533,14 +1535,6 @@ summary::-webkit-details-marker {
 
 
 /*ALGO DEL TEMA 2*/
-
-.item-summary {
-  position: relative; /* 👈 AÑADE ESTO */
-  cursor: pointer;
-  padding: 18px;
-  font-size: 18px;
-  list-style: none;
-}
 
 
 
