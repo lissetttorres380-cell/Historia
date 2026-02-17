@@ -2,246 +2,260 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Aprende Historia Digital</title>
+<title>Historia Digital – 1ero BGU</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-html{
-  scroll-behavior:smooth;
+:root{
+  --azul:#1d3557;
+  --azul2:#457b9d;
+  --verde:#2ecc71;
+  --naranja:#f4a261;
 }
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-/* ================== ESTILO BASE ================== */
 body{
-    margin:0;
-    font-family: "Segoe UI", Arial, sans-serif;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#f4f6f9;
+  overflow-x:hidden;
 }
 
-/* ================== BOTÓN INICIO ================== */
-.btn-inicio{
-    position:absolute;
-    top:20px;
-    left:20px;
-    padding:12px 26px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#0f2a44,#1d3557,#457b9d);
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-.btn-inicio:hover{ transform:translateY(-3px) scale(1.05); }
-.btn-inicio:active{ transform:scale(.95); }
-
-/* ================== CONTENEDOR DE BLOQUES ================== */
-.bloques-container{
-    display:grid;
-    grid-template-columns: repeat(3, 260px);
-    gap:40px 70px;
-    justify-content:center;
+/* ================= BIENVENIDA PRO PLUS ================= */
+.bienvenida{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top,#4facfe,transparent 40%),
+    linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
 }
 
-
-
-/* ================== BOTONES BLOQUES 1CAMBIO================== */
-.bloque{
-    width:260px;
-    height:155px;
-    border-radius:24px;
-    font-size:16px;
-    font-weight:600;
-    text-align:center;
-    padding-top:35px;
-    text-decoration:none;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.25);
-    transition: all .35s ease;
-    letter-spacing:.5px;
+.bienvenida .box{
+  padding:70px;
+  border-radius:35px;
+  background:rgba(255,255,255,0.15);
+  text-align:center;
+  color:white;
+  animation:entrada 1.2s ease;
+  box-shadow:0 0 60px rgba(79,172,254,.8);
 }
 
-/* Efecto hover PRO */
-.bloque:hover{
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(0,0,0,.35);
+@keyframes entrada{
+  from{opacity:0; transform:scale(.6);}
+  to{opacity:1; transform:scale(1);}
 }
 
-/* Efecto brillo animado */
-.bloque::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);
-    transition:.6s;
-}
-.bloque:hover::before{
-    left:100%;
+.bienvenida button{
+  margin-top:30px;
+  padding:20px 50px;
+  border:none;
+  border-radius:50px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#43e97b,#38f9d7);
 }
 
-/* ================== BOQUES DECORADOS AÑADIDO 1CAMBIO================== */
-
-.b1{
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-    color:white;
+/* ================= HEADER ================= */
+header{
+  background:linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
+  color:white;
+  text-align:center;
+  padding:15px;
 }
 
-.b2{
-    background: linear-gradient(135deg,#f7971e,#ffd200);
-    color:#222;
-}
-
-.b3{
-    background:  linear-gradient(135deg,#5f2c82,#3f51b5);
-    color:white;
-}
-.b4{
-    background: linear-gradient(135deg,#00b09b,#96c93d);
-    color:white;
-}
-.b5{
-    background: linear-gradient(135deg,#7b1e1e,#c62828);
-    color:white;
+/* ================= BANNER ================= */
+.banner{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:600px;
+  overflow:hidden;
 }
 
 
-
-.bloques-container a:nth-child(4),
-.bloques-container a:nth-child(5){
-    transform: translateX(140px);
-
-
-
-
-
-
-/* ================== SUBIR BLOQUES AL BANNER ================== */
-
-header.banner{
-    position:relative;
-    width:100%;
-    height:100vh; /* 🔥 ocupa toda la pantalla */
-    overflow:hidden;
+.banner img.fondo{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* 🔥 AJUSTA PERFECTO */
 }
 
+/* ================= LOGOS ================= */
 
-
-section.bloques{
-    position:absolute;
-    top:50px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:5;
-}
-
-/* ================== RESPONSIVE ================== */
-@media(max-width:768px){
-    section.bloques{
-        position:static;
-        transform:none;
-        padding:30px 0;
-    }
-    .bloques-container{
-        grid-template-columns:1fr;
-    }
-    .bloque{
-        width:90%;
-        margin:auto;
-    }
-    img{
-        width:100% !important;
-        height:auto !important;
-    }
-}
-
-
-
-
-/* ================== RESPONSIVE PRO ================== */
-
-/* 🖥 Pantallas grandes */
-@media(max-width:1400px){
-    .bloques-container{
-        grid-template-columns: repeat(3, 220px);
-        gap:35px 50px;
-  }
-
-    .bloque{
-        width:220px;
-        height:145px;
-        font-size:15px;
-    }
-
-
-/* ================== RESPONSIVE CORRECTO ================== */
-
-/* ======== ARREGLO BOTONES RESPONSIVE ======== */
-
-/* Tablet */
-@media(max-width:900px){
-
-section.bloques{
-   position:absolute;
-   top:40%;
-   left:50%;
-   transform:translate(-50%,-50%);
-}
-
-
-}
-
-
-
-/* ===== SOLO EN CELULAR ===== */
-@media(max-width:600px){
-
-  .bloques-container{
-      display:grid;
-      grid-template-columns:1fr;  /* 1 solo botón por fila */
-      gap:20px;
-  }
-
-  .bloque{
-      width:100%;
-  }
-
-}
-
-
-
-/* ================== FOOTER ================== */
-footer{
-    background: linear-gradient(135deg, #1d3557, #3F88C3, #457b9d);
-    color:white;
-    padding:10px;
-    top:25%;
-    text-align:center;
- margin-top:-90px;   /* esto lo sube */
-}
-
-
-.scroll-btn{
+/* 🔥 MOVER LOGO IZQUIERDO */
+.logo{
   position:absolute;
-  bottom:30px;
+  top:50px;   /* ⬆ subir / bajar */
+  left:380px;  /* ➡ mover derecha / izquierda */
+  width:200px; /* 🔍 tamaño */
+}
+
+/* 🔥 MOVER LOGO DERECHO */
+.logohistoria{
+  position:absolute;
+  top:150px;
+  right:580px;
+  left:750px;
+  width:250px;
+}
+
+/* ================= PERSONAJES ================= */
+.nino{
+  position:absolute;
+  bottom:0;
+  left:5%;
+  width:150px;
+}
+
+.nina{
+  position:absolute;
+  bottom:0;
+  right:5%;
+  width:150px;
+}
+
+/* ================= BOTONES ENCIMA DEL BANNER ================= */
+
+/* 🔥 AQUI SE MUEVEN LOS BOTONES */
+.botones{
+  position:absolute;
+  bottom:15%;
   left:50%;
   transform:translateX(-50%);
-  font-size:35px;
-  text-decoration:none;
-  color:white;
-  animation:flotar 1.5s infinite alternate;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  width:80%;
+  max-width:600px;
+  z-index:10;
 }
 
-@keyframes flotar{
-  from{transform:translate(-50%,0);}
-  to{transform:translate(-50%,10px);}
+
+/* BOTONES CERTIFICADO */
+.botones-certificado{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn-imprimir,
+.btn-cerrar{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.btn-imprimir{
+  background:linear-gradient(135deg,#2ecc71,#80ed99);
+  color:white;
+}
+
+.btn-imprimir:hover{
+  transform:translateY(-3px);
+}
+
+.btn-cerrar{
+  background:linear-gradient(135deg,#e63946,#ff6b6b);
+  color:white;
+}
+
+.btn-cerrar:hover{
+  transform:translateY(-3px);
+}
+
+
+.btn{
+  padding:20px;
+  font-size:20px;
+  font-weight:bold;
+  border-radius:45px;
+  text-align:center;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 15px 30px rgba(0,0,0,.4);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+.inicio{background:linear-gradient(135deg,#4facfe,#00f2fe);}
+.videos{background:linear-gradient(135deg,#f4a261,#ffd166); color:#000;}
+.juegos{background:linear-gradient(135deg,#2ecc71,#80ed99);}
+.certificado{background:linear-gradient(135deg,#9b5de5,#f15bb5);}
+
+/* ================= CERTIFICADO ================= */
+.certificado-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
+}
+
+.certificado-box{
+  background:white;
+  padding:50px;
+  border-radius:20px;
+  width:700px;
+  max-width:95%;
+  text-align:center;
+  border:10px double #1d3557;
+  box-shadow:0 0 40px rgba(0,0,0,.5);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
+  color:white;
+  text-align:center;
+  padding:10px;
+
+}
+@media (max-width:600px){
+
+  .botones{
+    grid-template-columns:1fr;
+    gap:20px;
+    width:90%;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+}
+.logohistoria{
+    position:absolute;
+    top:50px;              /* altura desde arriba */
+    left:50%;
+    transform:translateX(-50%);
+    width:300px;           /* tamaño grande */
+    max-width:70%;
+  }
+
+  .logo{
+    display:none;          /* ocultamos el otro logo */
+  }
+
 }
 
 </style>
@@ -249,70 +263,75 @@ footer{
 
 <body>
 
-<header style="background: linear-gradient(135deg, #1d3557, #3F88C3, #457b9d);
-;color:white;text-align:center;padding:30px; position:relative;">
-
-    <a href="index.html" class="btn-inicio" id="btnInicio">🏠 Inicio</a>
-
-    <h1>Asignatura de Historia Digital</h1>
-    <p>Fortalecer el aprendizaje significativo de la Historia mediante el uso de recursos digitales interactivos.</p>
-</header>
-
-<header class="banner" style="text-align:center;">
-<a href="#footer" class="scroll-btn">⬇</a>
-
-<img src="INICIO.jpg" alt="Historia" style="width:100%;height:500px;object-fit:cover;">
-
-<section class="bloques">
-<div class="bloques-container">
-
-<a href="Bloques/bloque1.html" target="_blank" class="bloque b1">
-🪨<br>Bloque 1<br>Los Orígenes y Evolución
-</a>
-
-<a href="Bloques/bloque2.html" target="_blank" class="bloque b2">
-🏺<br>Bloque 2<br>Civilizaciones Antiguas
-</a>
-
-<a href="Bloques/bloque3.html" target="_blank" class="bloque b3">
-⚔️<br>Bloque 3<br>Edad Media
-</a>
-
-<a href="Bloques/bloque4.html" target="_blank" class="bloque b4">
-🎥<br>Bloque 4<br>Sistemas Económicos
-</a>
-
-<a href="Bloques/bloque5.html" target="_blank" class="bloque b5">
-🎮<br>Bloque 5<br>Transformaciones sociales y políticas en América Latina
-</a>
-
+<div class="bienvenida" id="bienvenida">
+  <div class="box">
+    <h1>📜 HISTORIA VIVA – 1ero BGU</h1>
+    <p>Plataforma Digital Interactiva</p>
+    <button onclick="cerrarBienvenida()">🚀 Comenzar</button>
+  </div>
 </div>
-</section>
+
+<header>
+  <h1>Historia Digital – 1ero BGU</h1>
 </header>
 
-<footer>
-<p>© 2026 · Plataforma Educativa de Historia</p>
-</footer>
+<section class="banner">
+  <img src="INICIO.png" class="fondo">
+  <img src="Logo1.png" class="logo">
+  <img src="LOGOHISTORIA.png" class="logohistoria">
+  <img src="nino.png" class="nino">
+  <img src="nina.png" class="nina">
 
-<!-- ================== SONIDO ================== -->
-<audio id="clickSound" src="Sonido/Sonidodeseleccionar.mp3" preload="auto"></audio>
+  <div class="botones">
+    <div class="btn inicio" onclick="location.href='INICIO.html'">Inicio</div>
+    <div class="btn videos" onclick="location.href='Sonido/VIDEOS/VIDEO.html'">Videos</div>
+    <div class="btn juegos" onclick="window.open('Juego.html','_blank')">Juegos</div>
+    <div class="btn certificado" onclick="generarCertificado()">Certificado</div>
+  </div>
+</section>
+
+<footer>© 2026 – Historia Digital</footer>
+
+<div class="certificado-modal" id="certificado">
+  <div class="certificado-box" id="datosCertificado"></div>
+</div>
 
 <script>
-const sonido = document.getElementById("clickSound");
+function cerrarBienvenida(){
+  document.getElementById("bienvenida").style.display="none";
+}
 
-document.querySelectorAll(".bloque, .btn-inicio").forEach(boton=>{
-    boton.addEventListener("click", ()=>{
-        sonido.currentTime = 0;
-        sonido.volume = 0.3;
-        sonido.play();
-    });
-});
+function generarCertificado(){
+  const nombre = prompt("Ingrese el nombre del estudiante:");
+  if(!nombre) return;
 
-document.getElementById("btnInicio").addEventListener("click", ()=>{
-    if(!document.fullscreenElement){
-        document.documentElement.requestFullscreen().catch(()=>{});
-    }
-});
+  const curso = prompt("Ingrese el curso:");
+  if(!curso) return;
+
+  document.getElementById("datosCertificado").innerHTML = `
+    <h1 style="color:#1d3557;">📜 CERTIFICADO DE LOGRO</h1>
+    <p>Se reconoce a:</p>
+    <h2 style="margin:20px 0; color:#1d3557;">${nombre}</h2>
+    <p>Curso: <strong>${curso}</strong></p>
+    <p style="margin-top:20px;">
+    Por completar exitosamente la plataforma Historia Digital.
+    </p>
+    <p style="margin-top:20px; font-style:italic; color:#555;">
+    “El conocimiento de la historia nos permite construir un mejor futuro.”
+    </p>
+
+    <div class="botones-certificado">
+      <button class="btn-imprimir" onclick="window.print()">🖨 Imprimir</button>
+      <button class="btn-cerrar" onclick="cerrarCertificado()">Cerrar</button>
+    </div>
+  `;
+
+  document.getElementById("certificado").style.display="flex";
+}
+
+function cerrarCertificado(){
+  document.getElementById("certificado").style.display="none";
+}
 </script>
 
 </body>
