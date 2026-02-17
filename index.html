@@ -334,30 +334,43 @@ footer{
     height:85vh;
   }
 
-  .logo,
+  /* 🔥 Centramos logohistoria */
   .logohistoria{
-    display:none; /* 🔥 se ocultan en celular para que no se amontonen */
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+    width:180px;
+  }
+
+  /* Ocultamos el otro logo */
+  .logo{
+    display:none;
   }
 
   .botones{
-    top:60%;
+    top:65%;
     left:50%;
-    transform:translate(-50%,-100%);
-    grid-template-columns:1fr; /* 🔥 uno debajo del otro */
+    transform:translate(-50%,-50%);
+    grid-template-columns:1fr;
     gap:20px;
+    width:90%;
   }
 
   .btn{
     font-size:18px;
     padding:18px;
+    width:100%;
   }
 
-  .niño,.niña{
+  /* CORREGIDO SIN ACENTOS */
+  .nino,
+  .nina{
     width:80px;
   }
 
 }
-"nina.png" class="nina">
+
 
   <div class="botones">
     <div class="btn inicio" onclick="location.href='INICIO.html'">Inicio</div>
