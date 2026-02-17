@@ -6,11 +6,11 @@
 
 <style>
 
-
-
 .titulo-seccion{
   text-align: center;
   color: white;
+  margin:0;
+
 }
 
 .titulo-seccion span{
@@ -176,23 +176,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* LOS COLORES DE LAS HOJA AÑADIDOS*/
 
 
@@ -229,38 +212,24 @@ header{
   background: linear-gradient(135deg, #0f2c3a, #3b82b8);
   color:white;
   padding:16px 22px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:10;
-  justify-content:center; /* 🔥 centrado real */
-  position:relative;      /* necesario para el botón */
+  justify-content:center;
+
+  position:relative;
+
+}
 
 
+header.banner{
+    position:relative;
 }
 
 
 
 
-  
 
-header button{
-  background:#ffffff25;
-  border:none;
-  color:white;
-  padding:8px 16px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:background .3s;
-position: absolute;
-left: 50px;
-}
-
-header button:hover{
-  background:#ffffff40;
-}
 
 
 
@@ -312,7 +281,6 @@ main{
 }
 
 
-
 /* IMÁGENES EÑ MANEJO DE TODOS LOS IMAGENES PRINCIPALES */
 img{
   max-width:360px;
@@ -340,11 +308,6 @@ img:hover{
 .img-historia:hover{
   transform: scale(1.03);
 }
-
-
-
-
-
 
 /* TEXTO DESTACADO */
 .texto-extra{
@@ -458,14 +421,6 @@ img:hover{
 .actions button.quiz:hover{
   background: linear-gradient(135deg, #15803d, #22c55e);
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -596,12 +551,6 @@ top: 26px;
 }
 
 
-
-
-
-
-
-
 /* ===== LISTA BASE ===== */
 .lista-dinamica{
   list-style:none;
@@ -707,14 +656,11 @@ top: 26px;
   }
 }
 
-
-
 :root{
   --azul:#0f3d5e;
   --azul-suave:#e6f0f7;
   --gris:#f9fafb;
 }
-
 
 .seccion h3{
   text-align:center;
@@ -722,11 +668,6 @@ top: 26px;
   color:var(--azul);
   margin-bottom:30px;
 }
-
-
-
-
-
 
 
 /* ===== LISTA ===== */
@@ -798,9 +739,6 @@ top: 26px;
 .lista-dinamica li.activa::before{
   opacity:1;
 }
-
-
-
 
 /* ===== TARJETA DE EVOLUCION HUMANA ===== */
 .tarjeta{
@@ -939,12 +877,6 @@ top: 26px;
 
 
 
-
-
-
-
-
-
 /* ===== TEMA 3 HORIZONTAL ===== */
 .seccion.horizontal{
   max-width:900px;
@@ -1037,6 +969,19 @@ top: 26px;
 .mapa-mental:hover{
   transform: scale(1.2);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1445,9 +1390,6 @@ text-align: center;
 
 
 
-
-
-
 /* Vibración al acertar sonido */
 @keyframes vibrar{
   0%{ transform: translateX(0); }
@@ -1810,6 +1752,10 @@ text-align: center;
 
 
 
+
+
+
+
 /* FOOTER */
 footer{
   background: linear-gradient(135deg, #0f2c3a, #3b82b8);
@@ -1837,28 +1783,7 @@ footer a:hover{
 }
 
 
-.btn-regresar{
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  padding: 10px 22px;
-  border-radius: 14px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all .3s ease;
-}
 
-.btn-regresar:hover{
-  background: rgba(255,255,255,0.25);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-.btn-regresar:active{
-  transform: scale(0.95);
-}
 
 
 </style>
@@ -1867,13 +1792,34 @@ footer a:hover{
 <body>
 
 <audio id="sonidoCorrecto" src="../Sonido-Correcto.mp3" preload="auto"></audio>
+<header style="position:relative;">
 
-<header>
-<a href="../INICIO.html" class="btn-regresar">← Regresar</a>
+
+<button onclick="RegresarInicio()" 
+  style="
+    position:absolute;
+    left:20px;
+    top:35px;
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:rgba(255,255,255,0.25);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    font-size:16px;
+    backdrop-filter:blur(6px);
+    transition:all .3s ease;
+  ">
+  ← Regresar
+</button>
+
+
   <h1 class="titulo-seccion">
-  <span class="linea1">Sección 1</span>
-  <span class="linea2">La historia de la humanidad: de la evolución a la igualdad</span>
-</h1>
+    <span class="linea1">Sección 1</span>
+    <span class="linea2">La historia de la humanidad: de la evolución a la igualdad</span>
+  </h1>
+
 </header>
 
 <p id="indicador-tema" style="text-align:center;font-weight:bold;">
@@ -2674,6 +2620,15 @@ function mover(direccion){
 
 
 
+function RegresarInicio(){
+  window.location.href = "../INICIO.html";
+}
+
+
+
+
+
+
 
 
 function mostrarConcepto(elemento){
@@ -3253,97 +3208,6 @@ function siguientePregunta4(){
     document.getElementById("opciones4").innerHTML = "";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function verificarQuiz(){
-  const respuesta = document.querySelector('input[name="q1"]:checked');
-  const resultado = document.getElementById("resultado");
-
-  if(!respuesta){
-    resultado.textContent = "❗ Elige una respuesta";
-    resultado.style.color = "orange";
-    return;
-  }
-
-  if(respuesta.value === "b"){
-    resultado.textContent = "✅ Correcto";
-    resultado.style.color = "green";
-  }else{
-    resultado.textContent = "❌ Incorrecto";
-    resultado.style.color = "red";
-  }
-}
-
-
-
-
-
-
-
-
-function abrirQuiz(){
-  document.getElementById("quiz").style.display = "flex";
-  indiceQuiz = 0;
-  cargarPregunta();
-}
-
-function cerrarQuiz(){
-  document.getElementById("quiz").style.display = "none";
-}
-</script>
-
-
-
-
-
-<footer class="footer">
-  <p>© 2026 Proyecto educativo digital – Historia. Todos los derechos reservados.</p>
-</footer>
-
-</body>
-</html>
-
-
-
-
 
 
 
