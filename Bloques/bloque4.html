@@ -61,14 +61,14 @@
   background:linear-gradient(135deg,#2bb673,#7ed957);
   color:white;
   border:none;
-  padding:20px 28px;      /* MÁS GRANDES */
+  padding:20px 28px;
   font-size:18px;
   min-width:150px;
   border-radius:22px;
   cursor:pointer;
   font-weight:700;
   box-shadow:0 10px 25px rgba(0,0,0,.25);
-  transition:all .35s cubic-bezier(.4,0,.2,1);
+  transition:all .3s ease;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -81,11 +81,11 @@
 @keyframes aparecer{
   from{
     opacity:0;
-    transform:translateY(-20px) scale(.9);
+    transform:translateY(-20px);
   }
   to{
     opacity:1;
-    transform:translateY(0) scale(1);
+    transform:translateY(0);
   }
 }
 
@@ -93,39 +93,39 @@
 
 /* HOVER */
 .menu-temas button:hover{
-  transform:translateY(-8px) scale(1.08);
-  box-shadow:0 18px 38px rgba(0,0,0,.35);
+  transform:translateY(-4px);
+  box-shadow:0 16px 35px rgba(0,0,0,.30);
   background:linear-gradient(135deg,#239a5c,#5fce45);
 }
 
 
 
 /* BOTÓN ACTIVO (el que está seleccionado) */
-
-
-.menu-temas button.activo{
-background: linear-gradient(to right, #3BE000, #1FAF00, #0F7A3A);
-  box-shadow:0 22px 45px rgba(0,0,0,.45);
-  animation:pulso 1.6s infinite;
+.menu-temas button:active{
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(0,0,0,.20);
 }
 
-
-/* PULSO PRO */
-@keyframes pulso{
+/* BOTÓN ACTIVO (el seleccionado) */
+.menu-temas button.activo{
+  background:linear-gradient(135deg,#1e8f55,#2bb673);
+  transform:translateY(-4px);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.35),
+    inset 0 2px 6px rgba(255,255,255,.15);
+  animation: pulsoSuave 2.5s infinite ease-in-out;
+}
+@keyframes pulsoSuave{
   0%{
-    transform:scale(1.05);
-    box-shadow:0 0 0 0 rgb(59, 224, 0);
+    transform:translateY(-4px) scale(1);
   }
-  70%{
-    transform:scale(1.1);
-    box-shadow:0 0 0 18px rgba(59,130,246,0);
+  50%{
+    transform:translateY(-4px) scale(1.03);
   }
   100%{
-    transform:scale(1.05);
-    box-shadow:0 0 0 0 rgba(59,130,246,0);
+    transform:translateY(-4px) scale(1);
   }
 }
-
 
 
 /* LOS COLORES DE LAS HOJA AÑADIDOS*/
@@ -161,39 +161,34 @@ p{
 
 
 
+
 .seccion-tema h1{
-  font-size:32px;
-  margin-bottom:8px;
+  font-size:18px;   /* más pequeño */
+  margin-bottom:20px;
   text-align:center;
-
+  font-weight:600;
+  color:#6b7280;    /* más suave */
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
-
-
-
-
-
-.seccion h2{
-  text-align:center;
-  display:inline-block;
-  border-bottom:3px solid #3f6fa3;
-  padding-bottom:8px;
-}
-
-.seccion{
-  text-align:center;
-}
-
-
 
 
 .seccion-tema .subtitulo{
-  font-size:22px;
-  margin-bottom:30px;
-  line-height:1.5;
-  font-weight:600;
+  font-size:24px;   /* más fuerte */
+  margin-bottom:35px;
+  line-height:1.6;
+  font-weight:600; 
   text-align:center;
-
+  color:#1f2937;    /* más oscuro */
+  max-width:850px;
+  margin-left:auto;
+  margin-right:auto;
 }
+
+
+
+
+
 
 
 /* HEADER */
@@ -321,18 +316,61 @@ img:hover{
 }
 
 
-.img-historia{
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+.bloque-imagen-texto{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 50px 0;
+  flex-wrap: wrap; /* importante para móvil */
 }
 
+.imagen-lado{
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-lado{
+  flex: 1;
+  min-width: 300px;
+}
+
+.img-historia{
+  width: 100%;
+  max-height: 420px;   /* ← aquí controlas el largo */
+  object-fit: cover;   /* evita que se deforme */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transition: transform .3s ease;
+}
 
 .img-historia:hover{
   transform: scale(1.03);
 }
+
+.info-lado h4{
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.info-lado p{
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.fecha-img{
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+
+
+
+
+
 
 
 /* TEXTO DESTACADO */
@@ -355,7 +393,7 @@ img:hover{
   gap:40px;
   flex-wrap:wrap;
   justify-content:center;
-  margin-top:150px;
+  margin-top:80px;
 }
 
 /* BOTONES */
@@ -414,55 +452,168 @@ img:hover{
 
 
 
-.quiz-btn{
-  width:100%;
-  margin:10px 0;
-  padding:14px;
-  border:none;
-  border-radius:15px;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  background:linear-gradient(135deg,#2563eb,#38bdf8);
-  color:white;
-  transition:all .3s ease;
-  box-shadow:0 8px 20px rgba(37,99,235,.3);
+
+
+#quiz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.quiz-btn:hover{
-  transform:translateY(-4px) scale(1.03);
-  box-shadow:0 15px 35px rgba(37,99,235,.45);
+.modal-content {
+  background: white;
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: aparecer 0.4s ease;
 }
 
-.correcto{
-  color:#16a34a;
-  animation:pop .3s ease;
-}
-
-.incorrecto{
-  color:#dc2626;
-  animation:pop .3s ease;
-}
-
-@keyframes pop{
-  from{transform:scale(.8);opacity:0;}
-  to{transform:scale(1);opacity:1;}
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity:0; }
+  to { transform: scale(1); opacity:1; }
 }
 
 
 
 
 
-
-/* VARIANTE QUIZ (opcional) */
-.actions button.quiz{
-  background: linear-gradient(135deg, #16a34a, #4ade80);
-  border-color: #14532d;
+/* FONDO GENERAL */
+#quiz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #1f1c2c, #0f2027);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
 }
 
-.actions button.quiz:hover{
-  background: linear-gradient(135deg, #15803d, #22c55e);
+/* TARJETA PRINCIPAL */
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  animation: aparecer 0.5s ease;
+  position: relative;
 }
+
+/* ANIMACIÓN */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PREGUNTA */
+#quiz-pregunta {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* OPCIONES COMO TARJETAS */
+.quiz-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 15px;
+  border: 2px solid #e0e0e0;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.quiz-btn:hover {
+  background: #4e73df;
+  color: white;
+  border-color: #4e73df;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(78,115,223,0.4);
+}
+
+/* FEEDBACK */
+#quiz-feedback {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* PUNTAJE */
+#quiz-score {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* BARRA PROGRESO MODERNA */
+.barra-progreso {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+#progreso {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4e73df, #1cc88a);
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+
+/* BOTÓN CERRAR */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #e74a3b;
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ===== NAVEGACIÓN ===== */
@@ -538,30 +689,6 @@ img:hover{
   position:relative;
 }
 
-/* ===== QUIZ DISEÑO PRO ===== */
-
-#quiz .modal-content{
-  max-width:500px;
-  text-align:center;
-  border-radius:25px;
-  padding:35px;
-  background:linear-gradient(145deg,#ffffff,#eaf3ff);
-  box-shadow:0 25px 60px rgba(0,0,0,.25);
-}
-
-#quiz h3{
-  font-size:24px;
-  margin-bottom:20px;
-  color:#1e3a8a;
-}
-
-#quiz-pregunta p{
-  font-size:18px;
-  font-weight:600;
-  margin-bottom:20px;
-}
-
-
 
 
 
@@ -626,6 +753,145 @@ list-style: none;
 
 
 
+
+
+
+/* ===== TEMA 1 ===== */
+
+.reflexion{
+  margin-top:120px;
+  border-top:1px solid #e5e7eb;
+  padding-top:40px;
+  text-align:center;
+}
+
+.btn-reflexion{
+  background:#2dd4bf;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+
+.btn-reflexion:hover{
+  background:#14b8a6;
+  transform:translateY(-2px);
+}
+
+.contenido-reflexion{
+  display:none;
+  margin-top:20px;
+  background:#f0fdfa;
+  padding:20px;
+  border-radius:15px;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  line-height:1.6;
+}
+
+
+
+.lista-simple{
+  margin-top: 30px;
+  padding-left: 0;
+  list-style: none;
+}
+
+
+.lista-simple li:nth-child(1){ animation-delay:.1s }
+.lista-simple li:nth-child(2){ animation-delay:.2s }
+.lista-simple li:nth-child(3){ animation-delay:.3s }
+.lista-simple li:nth-child(4){ animation-delay:.4s }
+
+@keyframes fadeInUp{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+.lista-simple li::before{
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* ===== CONTENEDOR 2 COLUMNAS ===== */
+.bloques-dobles{
+  margin-bottom:50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 35px;
+}
+@media (max-width: 768px){
+  .bloques-dobles{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== BLOQUE ===== */
+.bloque-item{
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  padding: 30px;
+  border-radius: 20px;
+
+border-left: 5px solid #047857;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.06);
+  transition: all .35s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+.bloque-item::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:120px;
+  height:120px;
+  background: radial-gradient(circle at top right, rgba(16,185,129,.15), transparent 70%);
+}
+.bloque-item:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(0,0,0,.10);
+}
+
+
+
+
+
+/* ===== TITULO ===== */
+.bloque-item h3{
+  margin-bottom: 14px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #065f46;
+
+}
+
+/* ===== TEXTO ===== */
+.bloque-item p{
+  margin: 0;
+  line-height: 1.8;
+  font-size: 16.5px;
+  color: #1f2937;
+}
+
+
+
+
+
+
 /* ===== TÍTULO ARRIBA ===== */
 .lista-dinamica li::before{
   content: attr(data-title);
@@ -664,67 +930,138 @@ list-style: none;
 
 
 
-/* ===== LISTA ===== */
+/* TEMA 2 */
+
+.titulo-unidad{
+  text-align: center;
+  font-size: 24px;   /* más pequeño */
+  font-weight: 600;  /* menos pesado */
+  margin: 40px 0 50px;
+  letter-spacing: 0.3px;
+  color: black;
+}
+
+.titulo-unidad::after{
+  content: "";
+  width: 30%;
+  max-width: 200px;
+  height: 4px;
+  background: #6366f1;
+  display: block;
+  margin: 18px auto 0;
+  border-radius: 50px;
+}
+
+.intro-seccion{
+  max-width: 720px;
+  margin: 0 auto 25px;
+  text-align: center;
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+.pie-imagen{
+  text-align:center;
+  font-size:14px;
+  color:#6b7280;
+  margin-top:10px;
+  font-style:italic;
+}
+
+.imagen-tema2{
+  width: 700px;
+  max-width: 90%;
+  display: block;
+  margin: 30px auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+
+
 .lista-dinamica{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  list-style:none;
-  padding:0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
 }
 
-/* ===== ITEM (TARJETA) ===== */
 .lista-dinamica li{
-  position:relative;
-  cursor:pointer;
-
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 28px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-  transition: all .35s ease;
+  perspective: 1000px;
+  height:190px;
 }
 
-
-
-/* ===== BORDE DEGRADADO SUTIL ===== */
-.lista-dinamica li::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:2px;
-  border-radius:20px;
-  background:linear-gradient(
-    135deg,
-    #22c55e,
-    #3b82f6
-  );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-       
+.card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
 }
-
-/* ===== HOVER ===== */
 .lista-dinamica li:hover{
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+  transform: scale(1.05);
 }
 
 
-/* ===== ACTIVA ===== */
-.lista-dinamica li.activa{
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 55px rgba(34,197,94,0.35);
+.lista-dinamica li:hover .card-inner{
+  transform: rotateY(180deg);
 }
 
-/* ===== BORDE ACTIVO ===== */
-.lista-dinamica li.activa::before{
-  opacity:0.6;
+.card-front, .card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 
+      0 10px 25px rgba(0,0,0,.08),
+    0 20px 40px rgba(0,0,0,.05);
 }
+
+/* COLORES SUAVES */
+.lista-dinamica li:nth-child(1) .card-front{ background:#ecfdf5; }
+.lista-dinamica li:nth-child(2) .card-front{ background:#fff7ed; }
+.lista-dinamica li:nth-child(3) .card-front{ background:#f5f3ff; }
+
+.card-back{
+  background: rgba(255,255,255,0.85);
+  transform: rotateY(180deg);
+}
+
+
+.icono{
+  font-size: 55px;
+  margin-bottom: 15px;
+  transition: transform .3s ease;
+}
+
+.lista-dinamica li:hover .icono{
+  transform: scale(1.2);
+}
+
+
+h3{
+  margin: 0;
+}
+
+
+
+/* ===== TEXTO ===== */
+.tarjeta p{
+  margin: 0;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #374151;
+}
+
 
 
 
@@ -765,15 +1102,29 @@ p strong{
 
 
 .seccion h2{
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
   text-align:center;
-  display:inline-block;
-  border-bottom:3px solid #3f6fa3;
-  padding-bottom:8px;
 }
-
 .seccion{
   text-align:center;
 }
+
+.seccion h2::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 700px;
+  height: 3px;
+  background: #2dd4bf;
+  border-radius: 3px;
+}
+
 
 
 /* BOTONES */
@@ -981,6 +1332,38 @@ border-left: 6px solid #2e8b57;
 
 }
 
+
+
+
+.controles-voz{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:20px 0;
+}
+
+.controles-voz button{
+  background:linear-gradient(135deg,#1e3a8a,#2563eb);
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:30px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(37,99,235,.35);
+  transition:all .3s ease;
+}
+
+.controles-voz button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 30px rgba(37,99,235,.45);
+}
+
+.controles-voz button:active{
+  transform:scale(.95);
+}
+
 </style>
 </head>
 
@@ -1033,6 +1416,12 @@ border-left: 6px solid #2e8b57;
 </nav>
 
 
+<div class="controles-voz">
+  <button id="btnHablar" onclick="leerTexto()">🔊 Escuchar</button>
+  <button id="btnPausa" onclick="togglePausa()">⏸ Pausar</button>
+</div>
+
+
 <main>
 
 <!-- ================== TEMA 1 ================== -->
@@ -1047,28 +1436,79 @@ La palabrar revolución proviene del <b>latín</b> revolutio, revolutionis, que 
 </div>
 
 <p>
-Los movimientos sociales y las revoluciones en Latinoamérica surgieron como respuesta a la desigualdad, la explotación y la falta de derechos políticos y sociales. A lo largo de la historia, campesinos, obreros, indígenas y estudiantes se organizaron para exigir justicia, libertad y mejores condiciones de vida frente a sistemas opresivos.
-</p>
-<p>
-Estas luchas provocaron importantes transformaciones políticas, económicas y sociales en la región, influyendo en la independencia, la reforma agraria y la ampliación de derechos ciudadanos. Aunque muchos procesos fueron conflictivos, dejaron como legado la participación popular y la búsqueda constante de sociedades más justas e inclusivas.
+Desde el inicio del período colonial (siglos XV–XIX), se establecieron estructuras económicas y sociales basadas en la concentración de la riqueza y la exclusión de los pueblos indígenas y otros grupos sociales. Estas desigualdades se mantuvieron e incluso se reforzaron durante la formación de los Estados nacionales, generando tensiones que, con el tiempo, dieron origen a diversos movimientos de resistencia y transformación social.
 </p>
 
-<img src="../IMAGEN/tema14.jpg" class="img-historia">
+<div class="bloque-imagen-texto">
 
-<p>Los movimientos sociales y las revoluciones en Latinoamérica representan procesos históricos complejos que surgieron como consecuencia de profundas desigualdades económicas, sociales y políticas heredadas desde la época colonial y reforzadas durante la formación de los Estados nacionales. Estos movimientos fueron impulsados por diversos sectores de la población, como campesinos, trabajadores, pueblos indígenas, mujeres y estudiantes, quienes enfrentaron la concentración de la riqueza, la exclusión política y la falta de acceso a derechos básicos. A través de protestas, levantamientos y organizaciones colectivas, estos grupos buscaron transformar estructuras de poder injustas y construir sociedades más equitativas.</p>
+  <div class="imagen-lado">
+    <img src="../IMAGEN/tema14.jpg" class="img-historia">
+  </div>
+
+  <div class="info-lado">
+    <h4>Contexto histórico</h4>
+
+    <p>
+     Representación del inicio del período colonial, etapa que marcó profundas desigualdades sociales que más tarde darían origen a movimientos de resistencia y revoluciones en América Latina.
+    </p>
+
+    <span class="fecha-img">
+      Período colonial, siglos XV–XIX.
+    </span>
+  </div>
+</div>
+
+<p>Estas luchas provocaron importantes transformaciones en la región, influyendo en procesos como la independencia, las reformas agrarias y la ampliación de derechos ciudadanos. Aunque muchos de estos procesos fueron conflictivos, dejaron como legado una mayor participación popular y la búsqueda constante de sociedades más justas e inclusivas.</p>
+
+<p>Además, los movimientos sociales no solo buscaron cambios inmediatos, sino que también promovieron nuevas formas de participación política, fortalecieron la conciencia colectiva y consolidaron la idea de que la ciudadanía tiene el derecho de exigir justicia, igualdad y respeto a los derechos humanos. En la actualidad, estos movimientos continúan desempeñando un papel fundamental en la construcción de democracias más inclusivas en América Latina.</p>
 
 <div class="seccion">
 <h2>🏛️Orígenes, luchas y transformaciones sociales en Latinoamérica</h2>
 
 <p>
 Estos procesos sociales se han manifestado a través de diversas formas de organización y lucha, entre las que destacan:</p>
-<ul  class="lista-dinamica">
-<li> Lucha contra la desigualdad social y económica</li>
-<li> Participación de campesinos, indígenas y trabajadores</li>
-<li> Organización colectiva y protesta social</li>
-<li> Búsqueda de justicia, derechos y cambios estructurales</li>
-</ul>
+
+
+<div class="bloques-dobles">
+
+  <div class="bloque-item">
+    <h3>⚖ Lucha contra la desigualdad</h3>
+    <p>Acciones sociales orientadas a reducir brechas económicas y sociales.</p>
+  </div>
+
+  <div class="bloque-item">
+    <h3>🌾 Participación social</h3>
+    <p>Intervención activa de campesinos, pueblos indígenas y trabajadores.</p>
+  </div>
+
+  <div class="bloque-item">
+    <h3>✊ Organización colectiva</h3>
+    <p>Movilización social mediante protestas y estructuras comunitarias.</p>
+  </div>
+
+  <div class="bloque-item">
+    <h3>📜 Justicia y derechos</h3>
+    <p>Búsqueda de cambios estructurales y reconocimiento de derechos.</p>
+  </div>
+
 </div>
+
+
+<div class="reflexion">
+  <button class="btn-reflexion" onclick="toggleReflexion()">
+    🧠 Piensa y analiza
+  </button>
+
+  <div class="contenido-reflexion" id="reflexionContenido">
+    <p><strong>Reflexiona:</strong></p>
+    <ul>
+      <li>¿Por qué crees que los movimientos sociales siguen existiendo en la actualidad?</li>
+      <li>¿Conoces algún movimiento social en Ecuador? ¿Cuál es su objetivo?</li>
+      <li>Si hubieras vivido en esa época, ¿qué injusticia te habría motivado a participar?</li>
+    </ul>
+  </div>
+</div>
+
 
 <div class="actions">
 <button onclick="abrirMapa()">🧠 Mapa mental</button>
@@ -1087,52 +1527,85 @@ Estos procesos sociales se han manifestado a través de diversas formas de organ
 
 
 <p>
-La crisis, la migración y el desarrollo en América Latina evidencian cómo la falta de oportunidades impulsa a las personas a desplazarse en busca de bienestar, transformando tanto a los países de origen como a los de destino.
-</p>
+En América Latina, las crisis económicas, sociales y políticas han impulsado a muchas personas a migrar en busca de mejores oportunidades de vida. Factores como el desempleo, la pobreza, la inseguridad y el cambio climático influyen en esta decisión.</p>
 
 <div class="texto-extra">
-🦴 La crisis en América Latina impulsa la migración como una respuesta a la falta de empleo, la pobreza y la inseguridad. Este proceso impacta el desarrollo, generando tanto oportunidades, como las remesas, como desafíos sociales y económicos para los países de la región.
-</div>
+La migración ocurre cuando las personas no encuentran en su país las oportunidades necesarias para vivir con dignidad.</div>
 
+<p class="pie-imagen">
+  Migrantes en América Latina enfrentando procesos de desplazamiento y búsqueda de oportunidades.
+</p>
+<img src="../IMAGEN/Migra1.png" class="img-tema2">     
+
+
+<p>La migración impacta el desarrollo de los países. Por un lado, las remesas ayudan a muchas familias; por otro, genera desafíos como la pérdida de mano de obra y la presión sobre los servicios públicos. Por ello, los Estados deben promover políticas que reduzcan las desigualdades y fomenten un desarrollo sostenible. Además, es importante entender que la migración no solo tiene efectos económicos, sino también sociales y culturales. Cuando las personas migran, llevan consigo sus costumbres, tradiciones e identidad, lo que enriquece la diversidad de los países de destino. Sin embargo, también pueden enfrentar dificultades como la discriminación, la adaptación a un nuevo idioma o a diferentes normas sociales</p>
 
 <img src="../IMAGEN/tema24.jpg" class="img-historia">     
   
-<p>
-La crisis, la migración y el desarrollo en América Latina conforman un fenómeno interrelacionado que refleja las profundas desigualdades estructurales de la región. Factores como la pobreza, el desempleo, la inestabilidad política, la violencia y los efectos del cambio climático han provocado que millones de personas migren dentro y fuera de sus países en busca de mejores condiciones de vida. Este desplazamiento humano tiene un impacto significativo en el desarrollo, ya que, por un lado, las remesas contribuyen al sostenimiento económico de muchas familias y comunidades, pero, por otro, la migración masiva genera desafíos como la pérdida de fuerza laboral, la presión sobre los servicios públicos y la necesidad de garantizar los derechos humanos de los migrantes. Frente a esta realidad, los Estados latinoamericanos enfrentan el reto de implementar políticas que promuevan un desarrollo sostenible, reduzcan las desigualdades y creen oportunidades que disminuyan la migración forzada.</p>
 
- <h2>Características de la migración en América Latina</h2>
+<p>En muchos países de América Latina, la falta de oportunidades en el campo ha impulsado a numerosas personas a migrar hacia las ciudades en busca de empleo, educación y mejores condiciones de vida. Este proceso, conocido como migración interna, ha provocado el crecimiento acelerado de las zonas urbanas y el abandono progresivo de algunas áreas rurales, generando nuevos desafíos para el desarrollo de la región.</p>
+
+<h2 class="titulo-unidad">
+  Características de la Migración en América Latina
+</h2>
+
+<p class="intro-seccion">
+  La migración en América Latina refleja cambios sociales y económicos 
+  que transforman la vida de millones de personas.
+</p>
 
 <ul class="lista-dinamica">
 
-  <li onclick="toggleTarjeta(this)">
-    <h3 class="titulo-item">🚶 Movilidad</h3>
-    <div class="tarjeta">
-      <p>
-       Se refiere al desplazamiento de personas dentro de un mismo país o hacia otros países en busca de mejores condiciones de vida.
-      </p>
+  <li>
+    <div class="card-inner">
+
+      <div class="card-front">
+        <div>
+          <div class="icono">🚶</div>
+          <h3>Movilidad</h3>
+        </div>
+      </div>
+
+      <div class="card-back">
+        <p>Se refiere al desplazamiento de personas dentro de un mismo país o hacia otros países en busca de mejores condiciones de vida.</p>
+      </div>
+
     </div>
   </li>
 
-  <li onclick="toggleTarjeta(this)">
-    <h3 class="titulo-item">✋ Desplazamiento</h3>
-    <div class="tarjeta">
-      <p>
-        Es el movimiento de personas desde su lugar de origen hacia otro territorio, ya sea dentro del mismo país o hacia el extranjero.
-      </p>
-    </div>
+  <li>
+    <div class="card-inner">
+
+      <div class="card-front">
+        <div>
+          <div class="icono">✋</div>
+          <h3>Desplazamiento</h3>
+        </div>
+      </div>
+
+      <div class="card-back">
+        <p> Es el movimiento de personas desde su lugar de origen hacia otro territorio, ya sea dentro del mismo país o hacia el extranjero. </p>
+      </div>
+  </div>
   </li>
 
-  <li onclick="toggleTarjeta(this)">
-    <h3 class="titulo-item">🧠 Migración</h3>
-    <div class="tarjeta">
-      <p>
-Proceso en el que las personas se trasladan temporal o permanentemente, dentro del país o al extranjero, por motivos económicos, sociales, políticos o ambientales.
-     </p>
+  <li>
+    <div class="card-inner">
+
+      <div class="card-front">
+        <div>
+          <div class="icono">🧠</div>
+          <h3>Migración</h3>
+        </div>
+      </div>
+
+      <div class="card-back">
+        <p> Proceso en el que las personas se trasladan temporal o permanentemente, dentro del país o al extranjero, por motivos económicos, sociales, políticos o ambientales.</p>
+      </div>
+
     </div>
   </li>
-
 </ul>
-
 
 <div class="actions">
 <button onclick="abrirMapa()">🧠 Mapa mental</button>
@@ -1241,54 +1714,58 @@ En el siglo XXI, Ecuador ha atravesado un proceso continuo de transformación ma
 <div class="modal" id="quiz">
   <div class="modal-content">
     <span class="close" onclick="cerrarQuiz()">✖</span>
+
     <h3 id="quiz-titulo">Quiz</h3>
+
+    <!-- Barra de progreso -->
+    <div class="barra-progreso">
+      <div id="progreso"></div>
+    </div>
+
+    <!-- Puntaje -->
+    <div id="quiz-score" style="margin-bottom:10px;font-weight:bold;"></div>
+
     <div id="quiz-pregunta"></div>
     <div id="quiz-opciones" style="margin-top:15px;"></div>
     <div id="quiz-feedback" style="margin-top:12px;font-weight:bold;"></div>
+
   </div>
 </div>
 
 <script>
 
-let voz = null;
+
+
+
 
 function leerTexto(){
-  // si ya está hablando, no repetir
-  if(window.speechSynthesis.speaking) return;
 
-  // leer SOLO el tema visible
-const temaActivo = document.querySelector(".seccion-tema[style*='block']");
+  const temaActivo = temas[actual];
   if(!temaActivo) return;
 
   const texto = temaActivo.innerText;
 
-  voz = new SpeechSynthesisUtterance(texto);
-
-  // idioma español
-  voz.lang = "es-ES";
-
-  // velocidad y tono
-  voz.rate = 1;     // 0.8 más lento | 1 normal | 1.2 rápido
-  voz.pitch = 1;
-
-  window.speechSynthesis.speak(voz);
-}
-
-function pausarLectura(){
-  if(window.speechSynthesis.speaking){
-    window.speechSynthesis.pause();
-  }
-}
-
-function reanudarLectura(){
-  if(window.speechSynthesis.paused){
-    window.speechSynthesis.resume();
-  }
-}
-
-function detenerLectura(){
+  // cancelar si ya está hablando
   window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(texto);
+
+  // 🔥 Esperar a que las voces estén listas
+  const voces = speechSynthesis.getVoices();
+
+  if(voces.length === 0){
+    speechSynthesis.onvoiceschanged = () => {
+      const nuevasVoces = speechSynthesis.getVoices();
+      utterance.voice = nuevasVoces.find(v => v.lang.includes("es")) || nuevasVoces[0];
+      speechSynthesis.speak(utterance);
+    };
+  } else {
+    utterance.voice = voces.find(v => v.lang.includes("es")) || voces[0];
+    speechSynthesis.speak(utterance);
+  }
 }
+
+
 
 const timeline = document.querySelector('.timeline');
 
@@ -1452,94 +1929,173 @@ function cerrarMapa(){
 }
 
 
-function abrirQuiz() {
-  preguntaActual = 0;   // 🔥 MUY IMPORTANTE
-  document.getElementById("quiz").style.display = "flex";
-  mostrarPregunta();
-}
 
 function RegresarINICIO(){
   window.location.href = "../INICIO.html";
 }
 
 
+function toggleReflexion() {
+  const contenido = document.getElementById("reflexionContenido");
+  if (contenido.style.display === "block") {
+    contenido.style.display = "none";
+  } else {
+    contenido.style.display = "block";
+  }
+}
 // ===================== QUIZ =====================
 
-// Preguntas
-const preguntasPorTema = [
-  // ================= TEMA 1 =================
-  [
-    {
-      pregunta: "¿Cuál fue la causa principal de las revoluciones en Latinoamérica?",
-      opciones: [
-        "Injusticia social",
-        "Fiebre amarilla",
-        "Cambio climático",
-        "Invasión extranjera"
-      ],
-      respuesta: 0
-    }
-  ],
+// ===================== QUIZ COMPLETO =====================
 
-  // ================= TEMA 2 =================
-  [
-    {
-      pregunta: "La migración en América Latina se debe principalmente a:",
-      opciones: [
-        "Falta de oportunidades",
-        "Vacaciones",
-        "Turismo",
-        "Competencias deportivas"
-      ],
-      respuesta: 0
-    }
-  ],
+// TODAS LAS PREGUNTAS JUNTAS
+const preguntas = [
 
-  // ================= TEMA 3 (AQUÍ 5 PREGUNTAS) =================
-  [
-    {
-      pregunta: "¿Qué medida económica se adoptó en Ecuador en el año 2000?",
-      opciones: ["Dolarización", "Euroización", "Privatización total", "Libre comercio"],
-      respuesta: 0
-    },
-    {
-      pregunta: "¿Qué Constitución se aprobó en 2008?",
-      opciones: ["Nueva Constitución", "Constitución colonial", "Constitución militar", "Reforma bancaria"],
-      respuesta: 0
-    },
-    {
-      pregunta: "Uno de los desafíos actuales del Ecuador es:",
-      opciones: ["Inseguridad", "Colonización", "Imperio", "Monarquía"],
-      respuesta: 0
-    },
-    {
-      pregunta: "¿Qué afectó fuertemente al país desde 2020?",
-      opciones: ["Pandemia COVID-19", "Guerra mundial", "Descubrimiento de oro", "Independencia"],
-      respuesta: 0
-    },
-    {
-      pregunta: "El Ecuador busca equilibrio entre crecimiento y:",
-      opciones: ["Justicia social", "Imperialismo", "Conquista", "Colonización"],
-      respuesta: 0
-    }
-  ]
+  // TEMA 1
+  {
+    pregunta: "¿Qué significa la palabra revolución?",
+    opciones: [
+      "Guerra entre países",
+      "Movimiento económico",
+      "Cambio profundo o transformación",
+      "Crisis política"
+    ],
+    respuesta: 2
+  },
+  {
+    pregunta: "¿En qué período comenzaron grandes desigualdades en América Latina?",
+    opciones: [
+      "Período colonial",
+      "Siglo XXI",
+      "Globalización",
+      "Independencia"
+    ],
+    respuesta: 0
+  },
+  {
+    pregunta: "¿Qué buscan los movimientos sociales?",
+    opciones: [
+      "Aumentar impuestos",
+      "Reducir desigualdades sociales",
+      "Eliminar cultura",
+      "Concentrar poder"
+    ],
+    respuesta: 1
+  },
+
+  // TEMA 2
+  {
+    pregunta: "¿Cuál es una causa principal de la migración?",
+    opciones: [
+      "Turismo",
+      "Vacaciones",
+      "Falta de empleo y pobreza",
+      "Eventos deportivos"
+    ],
+    respuesta: 2
+  },
+  {
+    pregunta: "¿Qué son las remesas?",
+    opciones: [
+      "Impuestos",
+      "Dinero que envían migrantes a sus familias",
+      "Créditos",
+      "Ayuda militar"
+    ],
+    respuesta: 1
+  },
+  {
+    pregunta: "¿Cómo se llama la migración del campo a la ciudad?",
+    opciones: [
+      "Internacional",
+      "Externa",
+      "Temporal",
+      "Migración interna"
+    ],
+    respuesta: 3
+  },
+
+  // TEMA 3
+  {
+    pregunta: "¿Qué medida económica adoptó Ecuador en el 2000?",
+    opciones: [
+      "Privatización",
+      "Dolarización",
+      "Reforma agraria",
+      "Euroización"
+    ],
+    respuesta: 1
+  },
+  {
+    pregunta: "¿Qué se aprobó en Ecuador en 2008?",
+    opciones: [
+      "Nueva Constitución",
+      "Tratado militar",
+      "Código bancario",
+      "Reforma monetaria"
+    ],
+    respuesta: 0
+  },
+  {
+    pregunta: "¿Cuál es un desafío actual del Ecuador?",
+    opciones: [
+      "Imperio",
+      "Colonización",
+      "Inseguridad y desigualdad",
+      "Monarquía"
+    ],
+    respuesta: 2
+  },
+  {
+    pregunta: "¿Qué afectó fuertemente al país desde 2020?",
+    opciones: [
+      "Guerra mundial",
+      "Descubrimiento de oro",
+      "Pandemia COVID-19",
+      "Independencia"
+    ],
+    respuesta: 2
+  }
 ];
 
-
+// VARIABLES
 let preguntaActual = 0;
+let puntaje = 0;
 
-// Mostrar pregunta
+// ABRIR QUIZ
+function abrirQuiz() {
+  preguntaActual = 0;
+  puntaje = 0;
+
+  document.getElementById("quiz").style.display = "flex";
+  mostrarPregunta();
+}
+
+// MOSTRAR PREGUNTA
 function mostrarPregunta() {
-  const q = preguntasPorTema[actual][preguntaActual];
+
+  const total = preguntas.length;
+  const q = preguntas[preguntaActual];
+
   const contPregunta = document.getElementById("quiz-pregunta");
   const contOpciones = document.getElementById("quiz-opciones");
   const feedback = document.getElementById("quiz-feedback");
+  const score = document.getElementById("quiz-score");
 
+  // Puntaje
+  score.innerHTML = `Puntaje: ${puntaje} / ${total}`;
+
+  // Barra progreso
+  let porcentaje = (preguntaActual / total) * 100;
+  document.getElementById("progreso").style.width = porcentaje + "%";
+
+  // Mostrar pregunta
   contPregunta.innerHTML = `<p>${q.pregunta}</p>`;
   contOpciones.innerHTML = "";
   feedback.innerText = "";
 
+  // Crear botones
   q.opciones.forEach((opcion, index) => {
+
     const btn = document.createElement("button");
     btn.textContent = opcion;
     btn.classList.add("quiz-btn");
@@ -1548,33 +2104,62 @@ function mostrarPregunta() {
 
       if (index === q.respuesta) {
         feedback.innerText = "✅ ¡Correcto!";
+        puntaje++;
       } else {
         feedback.innerText = "❌ Incorrecto";
       }
 
       setTimeout(() => {
+
         preguntaActual++;
 
-        if (preguntaActual < preguntasPorTema[actual].length) {
+        if (preguntaActual < total) {
           mostrarPregunta();
         } else {
-          contPregunta.innerHTML = "<h3>🎉 ¡Has terminado el quiz!</h3>";
-          contOpciones.innerHTML = "";
-          feedback.innerText = "";
-
-          setTimeout(() => {
-            cerrarQuiz();
-            preguntaActual = 0;
-          }, 1500);
+            mostrarResultado();
         }
 
-      }, 1000);
+      }, 800);
     };
 
     contOpciones.appendChild(btn);
   });
 }
 
+// RESULTADO FINAL
+function mostrarResultado() {
+
+  const total = preguntas.length;
+  let mensaje = "";
+
+  if (puntaje >= 8) {
+    mensaje = "🏆 Excelente trabajo";
+  } else if (puntaje >= 5) {
+    mensaje = "👍 Buen trabajo";
+  } else {
+    mensaje = "📚 Necesitas repasar el tema";
+  }
+
+  document.getElementById("progreso").style.width = "100%";
+
+  document.getElementById("quiz-pregunta").innerHTML = `
+    <h3>¡Quiz terminado!</h3>
+    <p>${mensaje}</p>
+    <h2>${puntaje} / ${total}</h2>
+  `;
+
+  document.getElementById("quiz-opciones").innerHTML = "";
+  document.getElementById("quiz-feedback").innerText = "";
+
+  setTimeout(() => {
+    cerrarQuiz();
+  }, 3000);
+}
+
+// CERRAR QUIZ
+function cerrarQuiz() {
+  document.getElementById("quiz").style.display = "none";
+}
 
 // Cerrar quiz
 function cerrarQuiz() {
@@ -1582,6 +2167,19 @@ function cerrarQuiz() {
   document.getElementById("quiz-feedback").innerText = "";
 }
 
+
+function togglePausa(){
+  const btn = document.getElementById("btnPausa");
+
+  if(window.speechSynthesis.speaking && !window.speechSynthesis.paused){
+    window.speechSynthesis.pause();
+    btn.innerHTML = "▶ Reanudar";
+  } 
+  else if(window.speechSynthesis.paused){
+    window.speechSynthesis.resume();
+    btn.innerHTML = "⏸ Pausar";
+  }
+}
 
 
 
