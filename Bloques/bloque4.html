@@ -486,101 +486,62 @@ img:hover{
 
 
 
-/* FONDO GENERAL */
-#quiz {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, #1f1c2c, #0f2027);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 1000;
+
+
+#quiz{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 
-/* TARJETA PRINCIPAL */
-.modal-content {
-  background: #ffffff;
-  width: 100%;
-  max-width: 650px;
-  border-radius: 25px;
-  padding: 40px;
-  text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-  animation: aparecer 0.5s ease;
-  position: relative;
+.modal-content{
+  background:white;
+  width:90%;
+  max-width:650px;
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* ANIMACIÓN */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+#quiz-pregunta{
+  font-size:22px;
+  margin-bottom:25px;
 }
 
-/* PREGUNTA */
-#quiz-pregunta {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #333;
+.quiz-btn{
+  width:100%;
+  padding:15px;
+  margin:10px 0;
+  border:none;
+  border-radius:25px;
+  background:#f2f2f2;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-/* OPCIONES COMO TARJETAS */
-.quiz-btn {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border-radius: 15px;
-  border: 2px solid #e0e0e0;
-  background: #f8f9fa;
-  cursor: pointer;
-  font-size: 15px;
-  transition: all 0.3s ease;
+.quiz-btn:hover{
+  background:linear-gradient(90deg,#667eea,#764ba2);
+  color:white;
+  transform:translateY(-3px);
 }
 
-.quiz-btn:hover {
-  background: #4e73df;
-  color: white;
-  border-color: #4e73df;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(78,115,223,0.4);
+.barra-progreso{
+  height:8px;
+  background:#eee;
+  margin-bottom:20px;
+  border-radius:20px;
 }
 
-/* FEEDBACK */
-#quiz-feedback {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
+#progreso{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#667eea,#764ba2);
+  border-radius:20px;
 }
 
-/* PUNTAJE */
-#quiz-score {
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #666;
-}
-
-/* BARRA PROGRESO MODERNA */
-.barra-progreso {
-  width: 100%;
-  height: 8px;
-  background: #eee;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-#progreso {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #4e73df, #1cc88a);
-  border-radius: 20px;
-  transition: 0.4s ease;
-}
 
 /* BOTÓN CERRAR */
 .close {
@@ -870,7 +831,7 @@ border-left: 5px solid #047857;
 
 
 
-/* ===== TITULO ===== */
+/* ===== TITULO tema 1 ===== */
 .bloque-item h3{
   margin-bottom: 14px;
   font-size: 19px;
@@ -1071,30 +1032,24 @@ h3{
 /* ===== TEMA 3 HORIZONTAL ===== */
 
 
-p strong{
-  font-size:20px;   /* tamaño mediano */
-
-}
-
 .seccion.horizontal{
-  max-width:900px;
-  padding-top:10px;
-
+  max-width:800px;
+  padding-top:5px;
   text-align:center;      /* lo centra */
-
   margin:auto;
 }
 
 
+
 .seccion.horizontal h3{
-  text-align:center;      /* lo centra */
-  margin-top:40px;        /* espacio arriba */
-  margin-bottom:25px;     /* espacio abajo */
-  font-size:22px;
-  display:inline-block;
- border-bottom:3px solid #3f6fa3;
-  padding-bottom:8px;
- 
+  text-align: center;
+  margin: 40px 0 25px;
+  font-size: 26px;
+  font-weight: 80px;
+  color: #000;              /* texto negro */
+  display: inline-block;
+  padding-bottom: 8px;
+border-bottom: 3px solid #c9a227;
 }
 
 
@@ -1128,59 +1083,84 @@ p strong{
 
 
 /* BOTONES */
-.etapas-horizontal{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-bottom:25px;
 
+.etapas-horizontal{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
+
 .etapas-horizontal button{
-  background::#1f2937;
-  border:2px solid #dbe4ee;
-  padding:14px 18px;
-  border-radius:14px;
-  cursor:pointer;
-  font-weight:600;
-  transition:all .3s ease;
+  background: white;
+  border: 2px solid #d6dee8;
+  border-radius: 16px;
+
+  padding: 20px;
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .etapas-horizontal button:hover{
-   background: linear-gradient(135deg, #f8e7b0, #e4c86e);
-  border: 2px solid #caa63a;
-  color: :#1f2937;
-  box-shadow: 0 8px 20px rgba(202,166,58,0.35);
-  transform:translateY(-4px);
+  transform: translateY(-4px);
+  border-color: #c9a227;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
+
+
+
 
 
 
 /* CUADRO HORIZONTAL */
 .info-horizontal{
-  display:flex;
-  gap:20px;
-  align-items:center;
- background: linear-gradient(135deg, #e6f4ea, #d4edda);
-border-left: 6px solid #2e8b57;
+  margin-top: 45px;
+  padding: 22px 30px;
 
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 15px 35px rgba(0,0,0,.1);
-  animation:aparecer .4s ease;
+  background: #d9e8dc;
+  border-left: 6px solid #2f7d4f;
+
+  border-radius: 16px;
+  font-size: 16px;
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.info-horizontal h4{
-  min-width:180px;
-  margin:0;
-  color:black;
+.etapas-horizontal button.activo{
+  background: #3f6fa3;
+  color: white;
+  border-color: #3f6fa3;
 }
 
-.info-horizontal p{
-  margin:0;
-  line-height:1.6;
-  color:#1f2937;
+.seccion.horizontal h3{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+
+  margin-bottom: 35px;
+  padding-bottom: 10px;
+
+  border-bottom: 3px solid #c9a227;
+  display: inline-block;
+}
+
+.descripcion-seccion{
+  text-align: center;
+  max-width: 650px;
+  margin: 10px auto 30px;
+
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* 📱 CELULAR */
@@ -1535,7 +1515,7 @@ La migración ocurre cuando las personas no encuentran en su país las oportunid
 <p class="pie-imagen">
   Migrantes en América Latina enfrentando procesos de desplazamiento y búsqueda de oportunidades.
 </p>
-<img src="../IMAGEN/migra1.png" class="img-tema2">     
+<img src="../IMAGEN/Migra1.png" class="img-tema2">     
 
 
 <p>La migración impacta el desarrollo de los países. Por un lado, las remesas ayudan a muchas familias; por otro, genera desafíos como la pérdida de mano de obra y la presión sobre los servicios públicos. Por ello, los Estados deben promover políticas que reduzcan las desigualdades y fomenten un desarrollo sostenible. Además, es importante entender que la migración no solo tiene efectos económicos, sino también sociales y culturales. Cuando las personas migran, llevan consigo sus costumbres, tradiciones e identidad, lo que enriquece la diversidad de los países de destino. Sin embargo, también pueden enfrentar dificultades como la discriminación, la adaptación a un nuevo idioma o a diferentes normas sociales</p>
@@ -1657,13 +1637,17 @@ En el siglo XXI, Ecuador ha atravesado un proceso continuo de transformación ma
 
 
 <div class="seccion horizontal">
-  <h3>📜 Etapas del Ecuador en el siglo XXI</h3>
+  <h3> Etapas del Ecuador en el siglo XXI</h3>
+
+
+ <p class="descripcion-seccion">
+    Explora las principales etapas políticas y económicas que marcaron al Ecuador en el siglo XXI.
+  </p>
 
   <div class="etapas-horizontal">
-<button onclick="mostrarInfo(0)">🪓 Etapa de crisis y estabilización</button>
-    <button onclick="mostrarInfo(1)">🔥 Etapa de transformación y reformas</button>
-    <button onclick="mostrarInfo(2)">🌾 Etapa de ajustes y desafíos actuales</button>
-   
+    <button onclick="mostrarInfo(0)"> Etapa de crisis y estabilización</button>
+    <button onclick="mostrarInfo(1)"> Etapa de transformación y reformas</button>
+    <button onclick="mostrarInfo(2)"> Etapa de ajustes y desafíos actuales</button>
   </div>
 
   <div class="info-horizontal" id="info-horizontal">
@@ -1673,6 +1657,9 @@ En el siglo XXI, Ecuador ha atravesado un proceso continuo de transformación ma
     </p>
   </div>
 </div>
+
+
+
 
 <div class="actions">
 <button onclick="abrirMapa()">🧠 Mapa mental</button>
