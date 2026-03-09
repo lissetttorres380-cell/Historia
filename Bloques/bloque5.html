@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Segoe UI',sans-serif;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
   background:#f4f6f9;
 }
 
@@ -102,35 +102,41 @@ header p{
 
 .bloque-economia{
   display:flex;
-  align-items:center;
-  justify-content:center; /* centra todo */
-  gap:60px;
-  margin:80px auto;
-  max-width:1100px; /* evita que se abra demasiado */
-  padding:20px;
-  margin-top:-70px;
+  align-items:flex-start;
+  gap:40px;
+  margin:20px auto;
+  max-width:1000px;
+  padding:30px;
 
-
+  background:#fafafa;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.bloque-economia:hover{
+  transform:translateY(-5px);
+  transition:0.3s;
 }
 
+
 .img-peque{
-  width:420px;
-  border-radius:25px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.25);
-  transition:transform 0.4s ease;
+  width:300px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  transition:transform .3s;
 }
 
 .img-peque:hover{
-  transform:scale(1.03);
+  transform:scale(1.05);
 }
 
-..texto-economia{
+.texto-economia{
+  font-family: 'Segoe UI', Tahoma, sans-serif;
   max-width:520px;
-  font-size:15.5px;
-  line-height:1.6;
+  font-size:16px;
+  line-height:1.7;
   text-align:justify;
-  color:#2c2c2c;
-  font-weight:400;
+  color:#333;
+
 }
 
 
@@ -204,19 +210,31 @@ header p{
 
 
 
+
 .concepto-destacado{
-  background:#fdecea;          /* rojo muy suave */
-  border-left:6px solid #c62828; /* TU rojo */
-  padding:18px;
+  background:#fdecea;
+  border-left:6px solid #c62828;
+  padding:12px 16px;   /* menos espacio interno */
   border-radius:12px;
-  margin:25px 0;
+  margin:15px 0;       /* menos espacio arriba y abajo */
+
+  font-family: "Georgia", "Times New Roman", serif; /* estilo académico */
+  font-size:16px;
+  line-height:1.7;
+
   font-style:italic;
-  font-weight:600;
-  color:#444;
+  font-weight:500;
+  color:#333;
+
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
 }
-
-
-
+.concepto-destacado::before{
+  content:"❝";
+  font-size:28px;
+  color:#c62828;
+  margin-right:6px;
+}
+}
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1024px){
@@ -257,10 +275,27 @@ header p{
     max-width:250px;
   }
 
-  .cuadros-extra{
-    grid-template-columns:1fr;
-  }
+.cuadros-extra{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
 
+
+.cuadro{
+  background:white;
+  padding:22px;
+  border-radius:12px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.08);
+  transition:all 0.25s ease;
+}
+
+.cuadro:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
   .img-principal{
     max-height:220px;
   }
@@ -286,10 +321,6 @@ header p{
     padding:15px;
   }
 
-  .cuadro{
-    padding:18px;
-  }
-
 }
 
 
@@ -306,13 +337,20 @@ header p{
   border-radius: 12px;
 }
 
-
 .img-media{
-  width: 100%;  /* tamaño que tú quieras */
-  display: block;
-  margin: 20px 0; /* centrada */
-  border-radius: 12px;
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:10px auto;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+  transition:transform 0.3s;
 }
+
+.img-media:hover{
+  transform:scale(1.03);
+}
+
 
 
 
@@ -322,12 +360,11 @@ h3.titulo-bonito{
   font-size: 22px;
   font-weight: 600;
   color: #7b1e1e;
-  margin: 40px auto 25px;
+  margin: 5px auto 20px; /* menos espacio arriba y abajo */
   position: relative;
   display: block;
-width: fit-content;
-margin: 40px auto 25px;
-  padding-bottom: 8px;
+  width: fit-content;
+  padding-bottom: 6px;
 }
 
 /* Línea decorativa elegante */
@@ -403,19 +440,6 @@ margin: 40px auto 25px;
 }
 
 
-/* IMAGEN */
-.visor-imagen{
-  text-align:center;
-  margin-top:40px;
-}
-
-.visor-imagen img{
-  max-width:260px;
-  display:none;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  transition:.4s;
-}
 
 
 
@@ -446,6 +470,106 @@ margin: 40px auto 25px;
     background: #c8e6c9;
 }
 
+
+
+
+.tarjetas-economistas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:25px;
+}
+
+.tarjeta-economista{
+  background:#f8f8f8;
+  padding:20px;
+  border-radius:12px;
+  border-left:5px solid #7b1e1e;
+  transition:0.3s;
+}
+.economista-1{border-left:5px solid #1976d2;}
+.economista-2{border-left:5px solid #8e24aa;}
+.economista-3{border-left:5px solid #2e7d32;}
+
+
+.tarjeta-economista:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.tarjeta-economista h4{
+  color:#7b1e1e;
+  margin-bottom:6px;
+  font-size:18px;
+}
+
+.tarjeta-economista p{
+  font-size:15px;
+  line-height:1.6;
+  color:#333;
+}
+
+
+.texto-explicacion{
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  max-width:700px;
+  margin:15px auto 25px auto; /* antes probablemente era muy grande */
+  text-align:center;
+  line-height:1.6;
+  color:#555;
+}
+
+
+/*TEMA 3*/
+/* CITA HISTORICA */
+
+.cita-historica{
+background:#f4f6f8;
+border-left:5px solid #2c3e50;
+padding:15px;
+margin:4px 0;
+font-style:italic;
+color:#333;
+border-radius:6px;
+}
+
+/* COMPARACION IDEOLOGIAS */
+
+.comparacion-ideologias{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+margin-top:20px;
+justify-content:center;
+}
+
+.bloque{
+flex:1;
+min-width:220px;
+background:#fafafa;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.3s;
+border-top:4px solid #7b1e1e; /* color que ya usas en tu página */
+}
+
+.bloque:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 25px rgba(0,0,0,0.12);
+}
+
+.bloque h3{
+text-align:center;
+margin-bottom:12px;
+color:#7b1e1e;
+font-size:20px;
+}
+
+.bloque ul{
+line-height:1.8;
+padding-left:20px;
+}
 </style>
 </head>
 
@@ -515,8 +639,7 @@ const temas = [
 
 {
 titulo:"Tema 1: La economía colonial",
-texto:`
-<p>La economía colonial en América surgió como resultado directo de la expansión europea iniciada a finales del siglo XV, un proceso que transformó radicalmente las estructuras económicas del mundo. Antes de la llegada de los europeos, la economía europea se encontraba en plena transición: el feudalismo, basado en la tierra y en relaciones de dependencia personal, comenzaba a debilitarse mientras crecían el comercio, las ciudades y las actividades mercantiles.</p>
+texto:`<p>La economía colonial en América surgió como resultado directo de la expansión europea iniciada a finales del siglo XV, un proceso que transformó radicalmente las estructuras económicas del mundo. Antes de la llegada de los europeos, la economía europea se encontraba en plena transición: el feudalismo, basado en la tierra y en relaciones de dependencia personal, comenzaba a debilitarse mientras crecían el comercio, las ciudades y las actividades mercantiles.</p>
 <p>La actividad más importante fue la minería, especialmente de oro y plata, que se enviaban a Europa. Para trabajar en minas y haciendas se usaron distintos sistemas de trabajo: encomienda, mita, esclavitud africana y peonaje. También se desarrolló una agricultura orientada al mercado europeo, con plantaciones de azúcar, cacao, algodón y tabaco, mientras que las haciendas producían alimentos para el consumo interno.</p><div class="concepto-destacado">
 Se analiza cómo la economía colonial sentó las bases de relaciones comerciales y la explotación de recursos.
 </div>
@@ -525,17 +648,9 @@ Se analiza cómo la economía colonial sentó las bases de relaciones comerciale
   <img src="../IMAGEN/ECONOMI.png" class="img-peque">
 
 <div class="texto-economia">
-    <p>
-      El comercio estaba totalmente controlado por las metrópolis mediante
-      monopolios y leyes que prohibían a las colonias comerciar libremente
-      o desarrollar industrias propias. Esto mantuvo a América dependiente
-      y subordinada.
 
-      Se analiza cómo la economía colonial sentó las bases de relaciones
-      comerciales y la explotación de recursos, así como la organización
-      social y económica de la época. Además, se abordan los cambios en la
-      producción agrícola y artesanal, la expansión del comercio internacional
-      y la aparición de nuevas formas de acumulación de riqueza.</p></div>
+<p>El comercio estaba totalmente controlado por las metrópolis mediante monopolios y leyes que prohibían a las colonias comerciar libremente o desarrollar industrias propias. Esto mantuvo a América dependiente y subordinada.
+Además, se abordan los cambios en la producción agrícola y artesanal,la expansión del comercio internacional y la aparición de nuevas formas de acumulación de riqueza.</p></div>
 </div>
 <h3 class="titulo-bonito">Personajes emblemáticos de la economía colonial</h3>
 <p>La economía colonial no solo fue un sistema productivo, sino también un escenario de poder,ambición y conflicto. Estos personajes encarnaron tanto la expansión imperial como las críticas al modelo de explotación que transformó el continente.</p>
@@ -560,9 +675,7 @@ Se analiza cómo la economía colonial sentó las bases de relaciones comerciale
 
 </div>
 
-<div class="visor-imagen">
-    <img id="imagenPersonaje" src="" alt="Personaje">
-</div>
+
 `,
 imagen:"../IMAGEN/bloque51.jpg",
 mapa:"../IMAGEN/mapa51.png"
@@ -577,6 +690,7 @@ texto:`<p>La Revolución Industrial fue un proceso histórico de transformación
 <p>Entre sus principales consecuencias estuvieron el crecimiento de las ciudades industriales, la aparición de la clase obrera, la consolidación de la burguesía industrial y profundos cambios en las condiciones de trabajo y en la organización de la producción.</p>
 <p>La Revolución Industrial marcó el inicio de la economía moderna y transformó de manera irreversible la vida cotidiana, la producción y las relaciones de poder en el mundo occidental.<p>Su desarrollo estuvo estrechamente vinculado a la acumulación de capital proveniente del comercio internacional y de las colonias, lo que permitió financiar innovaciones técnicas y la expansión del sistema fabril.</p>
 <div class="concepto-destacado">Se exploran los cambios tecnológicos, económicos y sociales provocados por la Revolución Industrial.</div>
+
 <h3 class="titulo-bonito">Transformaciones económicas</h3>
 <p>El proceso industrial generó una profunda reconfiguración de la economía. La burguesía industrial se consolidó como clase dominante, controlando los medios de producción y acumulando capital. La expansión del sistema fabril impulsó un notable aumento de la productividad, lo que favoreció la creación de mercados nacionales e internacionales más dinámicos. Este fenómeno dio origen a una economía moderna basada en la producción en masa y en la circulación de bienes a gran escala.</p>
 <img src="../IMAGEN/Transformaciones.png" class="img-pequena">
@@ -590,28 +704,82 @@ mapa:"../IMAGEN/mapa52.png"
 
 
 
-
-
 {
-titulo:"Tema 3: Conflictos ideológicos",
-texto:`<p>Los conflictos ideológicos del siglo XX surgieron como resultado de profundas tensiones políticas, económicas y sociales acumuladas desde la época colonial y acentuadas por los cambios globales posteriores.</p>
-<p>Después de la Segunda Guerra Mundial, el mundo entró en una etapa marcada por fuertes tensiones políticas y económicas entre dos grandes potencias: Estados Unidos y la Unión Soviética. Este enfrentamiento, conocido como Guerra Fría, no fue un conflicto militar directo, sino una lucha por imponer modelos ideológicos opuestos.Mientras Estados Unidos defendía el capitalismo y la democracia liberal, la Unión Soviética promovía el comunismo y una economía planificada. Esta rivalidad influyó en casi todos los aspectos de la vida internacional: desde la carrera armamentista y espacial hasta la propaganda, los avances tecnológicos y la formación de alianzas militares como la OTAN y el Pacto de Varsovia.
-</p>
-<p>Al mismo tiempo, numerosos territorios que habían sido colonias iniciaron procesos de descolonización, buscando liberarse de las estructuras de dominación heredadas del colonialismo. Estos nuevos Estados se encontraron en medio de la disputa ideológica de la Guerra Fría, ya que ambas potencias intentaban influir en su desarrollo político y económico. Como resultado, muchos conflictos locales se convirtieron en escenarios de competencia global. En conjunto, estos procesos transformaron el mapa político mundial y marcaron profundamente la historia contemporánea.</p>
+titulo: "Tema 3: La Guerra Fría y el enfrentamiento ideológico",
+texto: `
+<p>Tras el final de la Segunda Guerra Mundial en 1945, el mundo quedó dividido en dos grandes bloques de poder. Por un lado, Estados Unidos representaba el modelo capitalista basado en la economía de mercado, la propiedad privada y el sistema democrático. Por otro lado, la Unión Soviética defendía el modelo comunista, caracterizado por la economía planificada y el control estatal.</p>
+<p>Este enfrentamiento político, económico e ideológico dio origen a un periodo conocido como la Guerra Fría. Aunque ambas potencias no se enfrentaron directamente en una guerra militar a gran escala, mantuvieron una constante tensión internacional, competencia armamentista, conflictos indirectos y rivalidad tecnológica durante varias décadas.</p>
+<div class="cita-historica">
+“La Guerra Fría fue una rivalidad global entre dos modelos de organización política, económica y social.”
+</div>
 
+<div class="comparacion-ideologias">
+
+<div class="bloque">
+<h3>Capitalismo</h3>
+<ul>
+<li>Economía de mercado</li>
+<li>Propiedad privada</li>
+<li>Democracia representativa</li>
+<li>Liderado por Estados Unidos</li>
+</ul>
+</div>
+
+<div class="bloque">
+<h3>Comunismo</h3>
+<ul>
+<li>Economía planificada</li>
+<li>Propiedad estatal</li>
+<li>Partido único</li>
+<li>Liderado por la Unión Soviética</li>
+</ul>
+</div>
+
+</div>
 `,
+
 imagen:"../IMAGEN/bloque53.jpg",
-mapa:"../IMAGEN/mapa53.png"
+mapa: `
+<h3>Mapa mental – Guerra Fría</h3>
+<ul>
+<li>División del mundo en dos bloques</li>
+<li>Estados Unidos vs Unión Soviética</li>
+<li>Enfrentamiento ideológico</li>
+<li>Carrera armamentista</li>
+<li>Conflictos indirectos</li>
+<li>Competencia tecnológica</li>
+</ul>
+`
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {
 titulo:"Tema 4: Escuelas económicas",
-texto:`<p>Las escuelas económicas surgieron precisamente como respuestas intelectuales a los cambios económicos que comenzaron en la época colonial. La expansión del comercio internacional, la explotación de recursos y la aparición de nuevas formas de acumulación de riqueza generaron preguntas sobre cómo debía organizarse la economía, qué papel debía tener el Estado y cómo se distribuía la riqueza. Estas transformaciones, descritas en la página adyacente, crearon el contexto histórico que dio origen a las primeras teorías económicas.</p><div class="concepto-destacado">El mercantilismo, una de las primeras escuelas económicas, nació directamente de la economía colonial porque las metrópolis buscaban acumular oro y plata controlando estrictamente el comercio de sus colonias.</div><p>A partir de este punto surgieron nuevas corrientes, como el liberalismo, el marxismo y el keynesianismo, que intentaron explicar y orientar el funcionamiento de las economías modernas, influyendo de manera decisiva en las políticas públicas de distintos países. Estas escuelas no solo ofrecieron interpretaciones distintas sobre el papel del Estado, el mercado y la distribución de la riqueza, sino que también moldearon modelos de desarrollo, reformas económicas y decisiones gubernamentales a lo largo de los siglos XIX y XX. Gracias a estas corrientes, los Estados adoptaron políticas que iban desde la libertad absoluta de mercado hasta la intervención estatal para corregir desigualdades, lo que demuestra cómo el pensamiento económico se convirtió en una herramienta fundamental para comprender y dirigir la vida social y política de las naciones.</p>
+texto:`<div class="concepto-destacado">El mercantilismo, una de las primeras escuelas económicas, nació directamente de la economía colonial porque las metrópolis buscaban acumular oro y plata controlando estrictamente el comercio de sus colonias.</div>
+<p>Las escuelas económicas surgieron precisamente como respuestas intelectuales a los cambios económicos que comenzaron en la época colonial. La expansión del comercio internacional, la explotación de recursos y la aparición de nuevas formas de acumulación de riqueza generaron preguntas sobre cómo debía organizarse la economía, qué papel debía tener el Estado y cómo se distribuía la riqueza. Estas transformaciones, descritas en la página adyacente, crearon el contexto histórico que dio origen a las primeras teorías económicas.</p>
+
+<p>A partir de este punto surgieron nuevas corrientes, como el liberalismo, el marxismo y el keynesianismo, que intentaron explicar y orientar el funcionamiento de las economías modernas, influyendo de manera decisiva en las políticas públicas de distintos países. Estas escuelas no solo ofrecieron interpretaciones distintas sobre el papel del Estado, el mercado y la distribución de la riqueza, sino que también moldearon modelos de desarrollo, reformas económicas y decisiones gubernamentales a lo largo de los siglos XIX y XX. Gracias a estas corrientes, los Estados adoptaron políticas que iban desde la libertad absoluta de mercado hasta la intervención estatal para corregir desigualdades, lo que demuestra cómo el pensamiento económico se convirtió en una herramienta fundamental para comprender y dirigir la vida social y política de las naciones.</p>
 
 <h3 class="titulo-bonito">Personajes emblemáticos de las escuelas económicas</h3>
 <img src="../IMAGEN/P.escuela_economica.png" class="img-media">
-<p>Cada escuela ofreció una visión distinta sobre el papel del Estado, el mercado y la distribución de la riqueza. Estas ideas se reflejan en pensadores que marcaron el rumbo del pensamiento económico moderno.</p>`,
+
+<p class="texto-explicacion">
+Cada escuela ofreció una visión distinta sobre el papel del Estado, el mercado y la distribución de la riqueza. Estas ideas se reflejan en pensadores que marcaron el rumbo del pensamiento económico moderno.</p>`,
 
 
 imagen:"../IMAGEN/bloque54.png",
@@ -716,14 +884,7 @@ function mostrar(){
 
   <div class="bloque-intro">
     <img class="img-principal" src="${temas[i].imagen}">
-    
-    <div class="info-imagen">
-      <h4>Contexto histórico</h4>
-      <p>
-        Este periodo marcó el inicio de una economía basada en la explotación de recursos,
-        la minería y el control comercial por parte de las metrópolis europeas.
-      </p>
-    </div>
+     </div>
   </div>
 
   <div style="white-space:pre-line;">
@@ -733,15 +894,14 @@ function mostrar(){
   ${
     infoExtra[i] && infoExtra[i].length > 0
     ? `
-      <div class="cuadros-extra">
-        ${infoExtra[i].map((item,index)=>`
-          <div class="cuadro cuadro-${index+1}">
-            <h4>${item.titulo}</h4>
-            <p>${item.texto}</p>
-          </div>
-        `).join("")}
-      </div>
-    `
+     <div class="tarjetas-economistas">
+  ${infoExtra[i].map((item,index)=>`
+    <div class="tarjeta-economista economista-${index+1}">
+      <h4>${item.titulo}</h4>
+      <p>${item.texto}</p>
+    </div>
+  `).join("")}
+</div>    `
     : ``
   }
 
