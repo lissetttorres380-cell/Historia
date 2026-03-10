@@ -32,12 +32,6 @@
 
 
 
-
-
-
-
-
-
 /* SLIDE ENTRE TEMAS */
 .tema{
   display:none;
@@ -200,13 +194,12 @@ body{
  min-height:100vh;
   display:flex;
   flex-direction:column;
-
 }
 
 
 
 
-/*0 HEADER */
+/* HEADER */
 
 header{
   background: linear-gradient(135deg, #0f2c3a, #3b82b8);
@@ -227,13 +220,6 @@ header.banner{
 }
 
 
-
-
-
-
-
-
-
 /* CONTENEDOR o lo que une todo en una hoja */
 main{
   max-width:1000px;
@@ -242,16 +228,18 @@ main{
 
 }
 
+
 .contenedor-cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-  justify-items: center; /* 🔥 CLAVE */
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
 }
 
 
+
+
 .card{
-  display:flex;
+  position:relative;
   flex-direction:column;
   justify-content:space-between;
   background:var(--tarjeta);
@@ -261,7 +249,6 @@ main{
   margin-bottom:50px;
   animation:entrada .6s ease;
 }
-
 
 .card-contenido{
   padding: 20px;
@@ -278,7 +265,7 @@ main{
     margin-bottom: 15px;
   }
  }
-}
+
 
 
 /* IMÁGENES EÑ MANEJO DE TODOS LOS IMAGENES PRINCIPALES */
@@ -325,21 +312,24 @@ img:hover{
 /* SECCIONES */
 
 .seccion h1{
-  color:#1d3557;
-  text-align:center;
-  margin-bottom:30px;
-  border-bottom:3px solid #3f6fa3;
-  display:inline-block;
-  padding-bottom:8px;
-  font-size:1.0em; /* más pequeño que el h1 normal */
+color:#374151;          /* gris elegante */
+text-align:center;
+margin-bottom:25px;
+border-bottom:2px solid #9ca3af;  /* línea gris suave */
+display:inline-block;
+padding-bottom:6px;
+font-size:1.4rem;       /* tamaño correcto */
+font-weight:600;
 }
 
-.seccion h2{              /* Este es el de tema 2 */
-  color:#1d3557;  
-  text-align:center;
-  margin-bottom:30px;
-  border-bottom:3px solid #3f6fa3;
-  padding-bottom:8px;
+.seccion h2{
+color:#374151;
+text-align:center;
+margin-bottom:25px;
+border-bottom:2px solid #9ca3af;
+padding-bottom:6px;
+font-size:1.2rem;
+font-weight:600;
 }
 
 
@@ -662,12 +652,115 @@ top: 26px;
   --gris:#f9fafb;
 }
 
+
 .seccion h3{
-  text-align:center;
-  font-size:1.7rem;
-  color:var(--azul);
-  margin-bottom:30px;
+text-align:center;
+font-size:1.4rem;   /* más pequeño */
+color:#4b5563;     /* gris elegante */
+margin-bottom:25px;
+font-weight:600;
+letter-spacing:0.5px;
 }
+
+/* ===== TEMA 1 cuadros primero ===== */
+.seccion1{
+background:linear-gradient(180deg,#f8fafc,#eef2f7);
+padding:40px;
+border-radius:15px;
+}
+
+.seccion1 h2{
+text-align:center;
+font-size:25px;
+font-weight:700;
+color:#1e3a8a;
+margin-bottom:45px;
+letter-spacing:1px;
+position:relative;
+}
+
+.seccion1 h2::after{
+content:"";
+width:250px;
+height:2px;
+background:#3b82f6;
+display:block;
+margin:12px auto 0;
+border-radius:4px;
+}
+
+
+
+.importancia-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+margin-top:35px;
+}
+
+.card-importancia{
+background:white;
+padding:35px 25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-top:5px solid #3b82f6;
+transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.card-importancia:hover .icono{
+transform:scale(1.2) rotate(5deg);
+transition:.35s;
+}
+
+
+.icono{
+width:80px;
+height:80px;
+background:#f1f5ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:36px;
+margin:0 auto 18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+
+.card-importancia h4{
+color:#1e3a8a;
+margin-bottom:10px;
+font-size:20px;
+}
+
+.card-importancia p{
+color:#555;
+line-height:1.6;
+}
+
+.card-importancia:hover .icono{
+transform:scale(1.15);
+transition:0.3s;
+}
+
+.card-importancia:nth-child(2){
+border-top:5px solid #f59e0b;
+}
+
+.card-importancia:nth-child(3){
+border-top:5px solid #10b981;
+}
+
+.card-importancia:nth-child(4){
+border-top:5px solid #ef4444;
+}
+
+
+
+
+
 
 
 /* ===== LISTA ===== */
@@ -884,12 +977,14 @@ top: 26px;
 }
 
 /* BOTONES */
+
 .etapas-horizontal{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-bottom:25px;
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
+margin-bottom:40px;
 }
 
 .etapas-horizontal button{
@@ -1407,48 +1502,52 @@ text-align: center;
 
 
 
-.tema{
-  position: relative;
-}
 
 .btn-audio{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 10;
+position: absolute;
+top: 14px;
+right: 14px;
+z-index: 10;
 }
 
 /* BOTÓN */
 .btnLeer{
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+width:55px;
+height:55px;
+border-radius:50%;
+border:none;
+font-size:24px;
+cursor:pointer;
 
-  background: linear-gradient(135deg,#2563eb,#1e40af);
-  color: white;
-  border: none;
-  font-size: 22px;
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
 
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
-  transition: all .25s ease;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+transition:all .3s ease;
+
+position:absolute;
+top:18px;
+right:18px;
 }
 
 .btnLeer:hover{
-  transform: scale(1.15);
+transform:scale(1.15) rotate(8deg);
+box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
+
 
 /* leyendo */
 .btnLeer.leyendo{
-  background: linear-gradient(135deg,#ef4444,#b91c1c);
-  animation: pulso 1.4s infinite;
+background: linear-gradient(135deg,#ef4444,#b91c1c);
+animation: pulso 1.4s infinite;
 }
 
 @keyframes pulso{
-  0%{ box-shadow:0 0 0 0 rgba(239,68,68,.6);}
-  70%{ box-shadow:0 0 0 16px rgba(239,68,68,0);}
-  100%{ box-shadow:0 0 0 0 rgba(239,68,68,0);}
+0%{ box-shadow:0 0 0 0 rgba(239,68,68,.6);}
+70%{ box-shadow:0 0 0 16px rgba(239,68,68,0);}
+100%{ box-shadow:0 0 0 0 rgba(239,68,68,0);}
 }
+
 
 
 
@@ -1802,6 +1901,7 @@ footer a:hover{
     top:35px;
     padding:10px 22px;
     border:2px solid white;
+    border:none;
     border-radius:10px;
     background:rgba(255,255,255,0.25);
     color:white;
@@ -1842,7 +1942,25 @@ footer a:hover{
 
 <!-- ================== TEMA 1 ================== -->
 <section class="card tema activo" id="tema-1">
-<button class="btnLeer" onclick="leerTexto(this)">🔊</button>
+
+<div style="text-align:right;">
+<button class="btnLeer" onclick="leerTexto(this)" 
+style="
+width:45px;
+height:50px;
+border-radius:50%;
+border:none;
+font-size:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+">
+🔊
+</button>
+</div>
+
+
 
 
 <h1>Tema 1: La Historia</h1>
@@ -1853,7 +1971,7 @@ La Historia estudia el pasado de la humanidad a través de fuentes históricas.
 
 
 <div class="texto-extra">
-📜 La palabra <b>historia</b> proviene del griego <i>historía</i>, que significa investigar, preguntar y buscar información.
+La palabra <b>historia</b> proviene del griego <i>historía</i>, que significa investigar, preguntar y buscar información.
 </div>
 
 
@@ -1873,17 +1991,41 @@ analizando hechos políticos, sociales, económicos y culturales.
 <p>La ciencia histórica no busca reproducir íntegramente los sucesos del pasado, sino que estudia a los hombres en el tiempo, con el fin de que el historiador ponga énfasis al estudio integral de todas las manifestaciones humanas producidas a lo largo del proceso histórico entendiéndolas de acuerdo al tiempo y también al espacio donde se desarrollaron. También debe tener en cuenta las estrechas relaciones entre el pasado y el presente y su medio en la formulación del conocimiento histórico.</p>
 
 
-<div class="seccion">
-<h2>🏛️Importancia de la Historia</h2>
-<ul  class="lista-dinamica">
-<li> Conocer el pasado de la humanidad</li>
-<li> Comprender leyes y tradiciones</li>
-<li> Analizar la sociedad</li>
-<li>  Aprender de errores y logros</li>
-</ul>
+
+
+
+<div class="seccion1">
+
+<h2>🏛️ Importancia de la Historia</h2>
+
+<div class="importancia-grid">
+
+<div class="card-importancia">
+<div class="icono">📜</div>
+<h4>Conocer el pasado</h4>
+<p>Permite comprender cómo se desarrollaron las civilizaciones y los acontecimientos históricos.</p>
 </div>
 
+<div class="card-importancia">
+<div class="icono">⚖️</div>
+<h4>Leyes y tradiciones</h4>
+<p>Ayuda a entender el origen de normas, costumbres y valores presentes en la sociedad.</p>
+</div>
 
+<div class="card-importancia">
+<div class="icono">🌍</div>
+<h4>Analizar la sociedad</h4>
+<p>Facilita comprender cambios sociales, políticos y culturales a lo largo del tiempo.</p>
+</div>
+
+<div class="card-importancia">
+<div class="icono">🧠</div>
+<h4>Aprender del pasado</h4>
+<p>Permite reflexionar sobre errores y logros para construir un mejor futuro.</p>
+</div>
+
+</div>
+</div>
 
 <h2 class="titulo-sombreado">🧠 Conclusión</h2>
 
@@ -1941,7 +2083,23 @@ A través de ella aprendemos de los errores y valoramos los logros de la humanid
 <!-- ================== TEMA 2 ================== -->
 <section class="card tema" id="tema-2">
 
-<button class="btnLeer" onclick="leerTexto(this)">🔊</button>
+<div style="text-align:right;">
+<button class="btnLeer" onclick="leerTexto(this)" 
+style="
+width:45px;
+height:50px;
+border-radius:50%;
+border:none;
+font-size:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+">
+🔊
+</button>
+</div>
+
 
 <h1>Tema 2: Evolución humana</h1>
 
@@ -2058,7 +2216,25 @@ Haz clic en los recuadros para ver la información.</p>
 <!-- ================== TEMA 3 ================== -->
 
 <section class="card tema" style="display:none">
-<button class="btnLeer" onclick="leerTexto(this)">🔊</button>
+
+<div style="text-align:right;">
+<button class="btnLeer" onclick="leerTexto(this)" 
+style="
+width:45px;
+height:50px;
+border-radius:50%;
+border:none;
+font-size:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+">
+🔊
+</button>
+</div>
+
+
 <h1>Tema : Prehistoria</h1>
 
 <p style="font-weight:bold;font-size:20px;text-align:center;">
@@ -2171,7 +2347,23 @@ La Prehistoria se refiere al periodo anterior a la invención de la escritura y 
  <!-- ================== TEMA 4 ================== -->
 <section class="card tema" style="display:none">
 
-<button class="btnLeer" onclick="leerTexto(this)">🔊</button>
+<div style="text-align:right;">
+<button class="btnLeer" onclick="leerTexto(this)" 
+style="
+width:45px;
+height:50px;
+border-radius:50%;
+border:none;
+font-size:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+">
+🔊
+</button>
+</div>
+
 
 <h1>Tema 4: Edad Antigua</h1>
 
@@ -2289,17 +2481,27 @@ La escritura permitió a estas sociedades registrar sus mitos, historias y trans
 
 
 
-
-
-
-
-
-
 <!-- ================== TEMA 5 ================== -->
 
 <section class="card tema" style="display:none">
 
-<button class="btnLeer" onclick="leerTexto(this)">🔊</button>
+<div style="text-align:right;">
+<button class="btnLeer" onclick="leerTexto(this)" 
+style="
+width:45px;
+height:50px;
+border-radius:50%;
+border:none;
+font-size:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#3b82f6,#1e3a8a);
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+">
+🔊
+</button>
+</div>
+
 
 <h1>Tema 5: Edad Media</h1>
 
@@ -2501,40 +2703,55 @@ let leyendo = false;
 let temaActual = null;
 
 function leerTexto(btn){
-  const synth = window.speechSynthesis;
-  const tema = btn.closest(".tema");
-  if(!tema) return;
 
-  // 👉 SI CAMBIASTE DE TEMA, LEE EL NUEVO
-  if(temaActual !== tema){
-    synth.cancel();
-    leyendo = false;
-    temaActual = tema;
-  }
+const synth = window.speechSynthesis;
+const tema = btn.closest(".tema");
+if(!tema) return;
 
-  // 👉 SI NO ESTÁ LEYENDO → EMPEZAR
-  if(!leyendo){
-    const texto = tema.innerText;
+// si cambias de tema
+if(temaActual !== tema){
+  synth.cancel();
+  leyendo = false;
+  temaActual = tema;
+}
 
-    voz = new SpeechSynthesisUtterance(texto);
-    voz.lang = "es-ES";
-    voz.rate = 1;
-    voz.pitch = 1;
+// si NO está leyendo → empezar
+if(!leyendo){
 
-    synth.speak(voz);
-    btn.textContent = "⏸";
-    leyendo = true;
+const texto = tema.innerText;
 
-  // 👉 SI ESTÁ LEYENDO → PAUSAR / CONTINUAR
-  }else{
-    if(synth.speaking && !synth.paused){
-      synth.pause();
-      btn.textContent = "▶️";
-    }else if(synth.paused){
-      synth.resume();
-      btn.textContent = "⏸";
-    }
-  }
+voz = new SpeechSynthesisUtterance(texto);
+voz.lang = "es-ES";
+voz.rate = 1;
+voz.pitch = 1;
+
+// 🔊 cambia a amarillo cuando empieza
+btn.style.background="linear-gradient(135deg,#facc15,#eab308)";
+btn.textContent="🎙";
+
+voz.onend = function(){
+btn.style.background="linear-gradient(135deg,#3b82f6,#1e3a8a)";
+btn.textContent="🔊";
+leyendo=false;
+}
+
+synth.speak(voz);
+leyendo=true;
+
+// si está leyendo → pausar / continuar
+}else{
+
+if(synth.speaking && !synth.paused){
+synth.pause();
+btn.textContent="🔊";
+
+}else if(synth.paused){
+synth.resume();
+btn.textContent="⏸";
+}
+
+}
+
 }
 
 
