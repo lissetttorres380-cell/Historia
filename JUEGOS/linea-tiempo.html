@@ -280,9 +280,12 @@ function toggleMusica(){
   music.paused ? music.play() : music.pause();
 }
 
-function volver(){
+function volverMenu(){
+ sonidoAmbiente.pause();
+ sonidoAmbiente.currentTime = 0;
  window.location.href = "../Juego.html";
 }
+  
 </script>
 
 </body>
