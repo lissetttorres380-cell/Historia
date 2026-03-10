@@ -88,6 +88,19 @@ header h1::after{
   padding:35px 0;
   background:#f4f6fa; /* fondo más limpio */
 }
+@media(max-width:768px){
+
+.menu-temas{
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.boton-tema{
+  padding:10px 20px;
+  font-size:14px;
+}
+
+}
 .boton-tema{
   padding:14px 38px;
   border-radius:50px;
@@ -319,6 +332,20 @@ background: linear-gradient(90deg, #b0b7c3, #d8dee9);
 .linea-tiempo.animar::before{
   width:100%;
 }
+
+@media(max-width:768px){
+  .evento{
+    display:block;
+    width:100%;
+  }
+
+  .linea-tiempo::before{
+    display:none;
+  }
+}
+
+
+
 
 
 
@@ -572,6 +599,7 @@ background: linear-gradient(90deg, #b0b7c3, #d8dee9);
 
 
 /* CONTENEDOR */
+@media(max-width:768px){
 
 .mapa-conceptual{
   position: relative;
@@ -687,6 +715,7 @@ background: linear-gradient(90deg, #b0b7c3, #d8dee9);
   z-index: 1;
 }
 
+}
 .linea-horizontal-izq{
   left: 20%;
 background: linear-gradient(to right, #1e3c72, #2a5298);
@@ -1166,15 +1195,22 @@ display:flex;
 
 
 
+
+
+
+
+
+
+
 <body>
 
 <header style="position:relative;">
 
 <button onclick="RegresarINICIO()" 
   style="
-    position:absolute;
-    left:20px;
-    top:35px;
+ position:absolute;
+    left:15px;
+    top:10px;
     padding:10px 22px;
     border:2px solid white;
     border:none;
