@@ -246,84 +246,61 @@ section.bloques{
 /* ================== CELULAR ================== */
 @media(max-width:600px){
 
-/* CONTENEDOR PRINCIPAL DE LA PÁGINA */
-main{
-   width:95%;
-   margin:0 auto;
-}
-
-
-html,body{
-   margin:0;
-   padding:0;
-   overflow-x:hidden;
-}
-
 /* ===== HEADER ===== */
 header{
-   width:100%;
-   padding:22px 15px 28px;
+   padding:25px 15px 50px;
    text-align:center;
-   box-sizing:border-box;
 }
 
 h1{
-   font-size:22px;
-   margin-bottom:10px;
+   font-size:24px;
 }
 
 p{
-   font-size:14px;
-   line-height:1.4;
+   font-size:15px;
 }
 
 /* ===== BOTON INICIO ===== */
 .btn-inicio{
    top:10px;
    left:10px;
-   padding:7px 14px;
-   font-size:13px;
+   padding:8px 18px;
+   font-size:14px;
 }
 
-
-/* ===== BLOQUES ===== */
-section.bloques{
-   position:relative;
-   width:100%;
-   top:0;
-   transform:none;
-   margin-top:10px;
-   display:flex;
-   justify-content:center;
-   align-items:center;
-}
+/* ===== BANNER ===== */
 
 
 
-/* ocultar banner en celular */
-
-.banner{
-   height:100px;
-   padding:1px;
-   margin:5px;
-   overflow:hidden;
-
-}
 
 .banner img{
    display:none;
 }
 
-/* CONTENEDOR */
-.bloques-container{
-   width:100%;
-   display:flex;
-   flex-direction:column;
-   align-items:center;
-   gap:18px;
+/* ===== BLOQUES ===== */
+section.bloques{
+   position:relative;
+   margin-top:140px;
+   padding-bottom:50px;
+}
+.bloque:first-child{
+   margin-top:300px;
 }
 
 
+/* CONTENEDOR */
+.bloques-container{
+   display:grid;
+   grid-template-columns:1fr;
+   gap:30px;
+   width:100%;
+   margin-top:350px;
+
+   padding:0 10px;
+}
+
+
+/* BLOQUES */
 
 /* BLOQUES */
 .bloque{
@@ -345,6 +322,20 @@ section.bloques{
    margin-left:auto !important;
    margin-right:auto !important;
 }
+
+
+
+
+
+
+
+
+
+/* eliminar movimientos de escritorio */
+.b4,
+.b5{
+   transform:none !important;
+}
 /* ===== FOOTER ===== */
 footer{
    width:100%;
@@ -353,8 +344,12 @@ footer{
    text-align:center;
    padding:14px 10px;
    font-size:12px;
-   margin-top:-12px;
+   margin-top:-10px;
 }
+
+
+
+
 
 
 
