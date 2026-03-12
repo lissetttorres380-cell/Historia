@@ -8,358 +8,194 @@
 <style>
 
 /* ================== ESTILO BASE ================== */
-body{
-    margin:0;
-    font-family: "Segoe UI", Arial, sans-serif;
+html,body{
+margin:0;
+padding:0;
+width:100%;
+overflow-x:hidden;
+font-family:"Segoe UI", Arial, sans-serif;
 }
 
 /* ================== BOTÓN INICIO ================== */
 .btn-inicio{
-    position:absolute;
-    top:20px;
-    left:20px;
-    padding:12px 26px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#0f2a44,#1d3557,#457b9d);
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-.btn-inicio:hover{ transform:translateY(-3px) scale(1.05); }
-.btn-inicio:active{ transform:scale(.95); }
-
-/* ================== CONTENEDOR DE BLOQUES ================== */
-.bloques-container{
-    display:grid;
-    grid-template-columns: repeat(3, 260px);
-    gap:40px 70px;
-    justify-content:center;
+position:absolute;
+top:20px;
+left:20px;
+padding:12px 26px;
+border-radius:30px;
+background:linear-gradient(135deg,#0f2a44,#1d3557,#457b9d);
+color:white;
+font-weight:600;
+text-decoration:none;
+display:flex;
+align-items:center;
+gap:8px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+transition:.25s;
 }
 
-
-
-/* ================== BOTONES BLOQUES 1CAMBIO================== */
-.bloque{
-    width:260px;
-    height:155px;
-    border-radius:24px;
-    font-size:16px;
-    font-weight:600;
-    text-align:center;
-    padding-top:35px;
-    text-decoration:none;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.25);
-    transition: all .35s ease;
-    letter-spacing:.5px;
+.btn-inicio:hover{
+transform:translateY(-3px) scale(1.05);
 }
 
-/* Efecto hover PRO */
-.bloque:hover{
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(0,0,0,.35);
+/* ================== HEADER ================== */
+header{
+background: linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
+color:white;
+text-align:center;
+padding:30px;
+position:relative;
 }
 
-/* Efecto brillo animado */
-.bloque::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);
-    transition:.6s;
-}
-.bloque:hover::before{
-    left:100%;
+/* ================== BANNER ================== */
+.banner{
+position:relative;
+text-align:center;
 }
 
-/* ================== BOQUES DECORADOS AÑADIDO 1CAMBIO================== */
-
-.b1{
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-    color:white;
+.banner img{
+width:100%;
+height:600px;
+object-fit:cover;
 }
 
-.b2{
-    background: linear-gradient(135deg,#f7971e,#ffd200);
-    color:white;
-}
-
-.b3{
-    background:  linear-gradient(135deg,#5f2c82,#3f51b5);
-    color:white;
-}
-.b4{
-    background: linear-gradient(135deg,#00b09b,#96c93d);
-    color:white;
-}
-.b5{
-    background: linear-gradient(135deg,#7b1e1e,#c62828);
-    color:white;
-}
-
-
-
-
-
-
-
-
-
-/* ================== SUBIR BLOQUES AL BANNER ================== */
-
-header.banner{
-    position:relative;
-    width:100%;
-    height:auto;   /* 🔥 CAMBIA ESTO */
-    overflow:hidden;
-}
-
+/* ================== BLOQUES ================== */
 
 section.bloques{
-    position:absolute;
-    top:50px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:5;
+position:relative;
+margin-top:-420px;
+display:flex;
+justify-content:center;
+}
+
+.bloques-container{
+display:grid;
+grid-template-columns:repeat(3,260px);
+gap:40px 70px;
+justify-content:center;
+}
+
+/* ================== BOTONES ================== */
+
+.bloque{
+width:260px;
+height:155px;
+border-radius:24px;
+font-size:16px;
+font-weight:600;
+text-align:center;
+padding-top:35px;
+text-decoration:none;
+cursor:pointer;
+color:white;
+position:relative;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+transition:.35s;
+}
+
+.bloque:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 25px 50px rgba(0,0,0,.35);
+}
+
+/* brillo */
+
+.bloque::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);
+transition:.6s;
+}
+
+.bloque:hover::before{
+left:100%;
+}
+
+/* colores */
+
+.b1{background:linear-gradient(135deg,#1e3c72,#2a5298);}
+.b2{background:linear-gradient(135deg,#f7971e,#ffd200);}
+.b3{background:linear-gradient(135deg,#5f2c82,#3f51b5);}
+.b4{background:linear-gradient(135deg,#00b09b,#96c93d);}
+.b5{background:linear-gradient(135deg,#7b1e1e,#c62828);}
+
+/* mover bloques inferiores */
+
+.b4,.b5{
+transform:translateX(140px);
+}
+
+.b4:hover,.b5:hover{
+transform:translateX(140px) translateY(-10px) scale(1.03);
+}
+
+/* ================== FOOTER ================== */
+
+footer{
+width:100%;
+background:linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
+color:white;
+text-align:center;
+padding:18px;
+font-size:14px;
+margin-top:40px;
 }
 
 /* ================== RESPONSIVE ================== */
-@media(max-width:768px){
-    section.bloques{
-        position:static;
-        transform:none;
-        padding:30px 0;
-    }
-    .bloques-container{
-        grid-template-columns:1fr;
-    }
-    .bloque{
-        width:90%;
-        margin:auto;
-    }
-    img{
-        width:100% !important;
-        height:auto !important;
-    }
-}
 
-
-
-
-
-/* ================== RESPONSIVE PRO ================== */
-
-/* 🖥 Pantallas grandes */
-@media(max-width:1400px){
-
-section.bloques{
-   position:absolute;
-   top:45%;
-   left:50%;
-   transform:translate(-50%,-50%);
-}
-
-.bloque:hover{
-    transform: translateY(-10px) scale(1.03);
-}
-
-
-.bloque{
-   width:220px;
-   height:145px;
-   font-size:15px;
-}
-
-footer{
-   background: linear-gradient(to bottom, #3e6d94, #5a8fbf);
-}
-}
-
-
-.b4{ 
-   transform: translateX(140px); 
-}
-
-.b5{ 
-   transform: translateX(140px); 
-}
-
-.b4:hover{
-   transform: translateX(140px) translateY(-10px) scale(1.03);
-}
-
-.b5:hover{
-   transform: translateX(140px) translateY(-10px) scale(1.03);
-}
-
-
-
-
-
-
-/* ================== RESPONSIVE CORRECTO ================== */
-
-/* ======== ARREGLO BOTONES RESPONSIVE ======== */
-
-/* Tablet */
 @media(max-width:900px){
 
 section.bloques{
-   position:absolute;
-   top:50%;
-   left:50%;
-   transform:translate(-50%,-50%);
+margin-top:-350px;
 }
+
+.bloques-container{
+grid-template-columns:repeat(2,220px);
+}
+
 .bloque{
-    width:200px;
-    height:100px;
-    border-radius:24px;
-    font-size:16px;
-    font-weight:600;
-    text-align:center;
-    padding-top:35px;
-    text-decoration:none;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.25);
-    transition: all .35s ease;
-    letter-spacing:.5px;
+width:220px;
+height:140px;
+}
+
+.b4,.b5{
+transform:none;
 }
 
 }
 
-
-
-/* ================== CELULAR ================== */
 @media(max-width:600px){
 
-/* ===== HEADER ===== */
-header{
-   padding:25px 15px 50px;
-   text-align:center;
-}
-
-h1{
-   font-size:24px;
-}
-
-p{
-   font-size:15px;
-}
-
-/* ===== BOTON INICIO ===== */
-.btn-inicio{
-   top:10px;
-   left:10px;
-   padding:8px 18px;
-   font-size:14px;
-}
-
-/* ===== BANNER ===== */
-
-
-
-
 .banner img{
-   display:none;
+display:none;
 }
 
-/* ===== BLOQUES ===== */
 section.bloques{
-   position:relative;
-   margin-top:140px;
-   padding-bottom:50px;
-}
-.bloque:first-child{
-   margin-top:300px;
+margin-top:80px;
 }
 
-
-/* CONTENEDOR */
 .bloques-container{
-   display:grid;
-   grid-template-columns:1fr;
-   gap:30px;
-   width:100%;
-   margin-top:350px;
-
-   padding:0 10px;
+grid-template-columns:1fr;
+gap:30px;
+padding:0 10px;
 }
 
-
-/* BLOQUES */
-
-/* BLOQUES */
 .bloque{
-   display:block;
-   width:85%;
-   max-width:300px;
-   height:130px;
-   padding-top:30px;
-   font-size:15px;
-   border-radius:22px;
-   box-shadow:0 10px 22px rgba(0,0,0,0.25);
-   text-align:center;
-
-   margin:0 auto;   /* centra */
+width:85%;
+max-width:300px;
+height:130px;
+margin:auto;
 }
 
-.b1,.b2,.b3,.b4,.b5{
-   transform:none !important;
-   margin-left:auto !important;
-   margin-right:auto !important;
+.b4,.b5{
+transform:none;
 }
 
-
-
-
-
-
-
-
-
-/* eliminar movimientos de escritorio */
-.b4,
-.b5{
-   transform:none !important;
-}
-/* ===== FOOTER ===== */
-footer{
-   width:100%;
-   background: linear-gradient(135deg,#1d3557,#3F88C3,#457b9d);
-   color:white;
-   text-align:center;
-   padding:14px 10px;
-   font-size:12px;
-   margin-top:-10px;
-}
-
-
-
-
-
-
-
-/* ================== FOOTER ================== */
-footer{
-    background: linear-gradient(135deg, #1d3557, #3F88C3, #457b9d);
-    color:#fff;
-    padding:5px;
-    top:45%;
-    text-align:center;
 }
 
 </style>
@@ -367,19 +203,21 @@ footer{
 
 <body>
 
-<header style="background: linear-gradient(135deg, #1d3557, #3F88C3, #457b9d);
-;color:white;text-align:center;padding:30px; position:relative;">
+<header>
 
-    <a href="index.html" class="btn-inicio" id="btnInicio">🏠 Inicio</a>
+<a href="index.html" class="btn-inicio" id="btnInicio">🏠 Inicio</a>
 
-    <h1>Asignatura de Historia Digital</h1>
-    <p>Fortalecer el aprendizaje significativo de la Historia mediante el uso de recursos digitales interactivos.</p>
+<h1>Asignatura de Historia Digital</h1>
+<p>Fortalecer el aprendizaje significativo de la Historia mediante el uso de recursos digitales interactivos.</p>
+
 </header>
 
-<header class="banner" style="text-align:center;">
-<img src="INICIO1.png" alt="Historia" style="width:100%;height:600px;object-fit:cover;">
+<div class="banner">
+
+<img src="INICIO1.png" alt="Historia">
 
 <section class="bloques">
+
 <div class="bloques-container">
 
 <a href="Bloques/bloque1.html" target="_blank" class="bloque b1">
@@ -403,32 +241,35 @@ footer{
 </a>
 
 </div>
+
 </section>
-</header>
+
+</div>
 
 <footer>
 <p>© 2026 · Plataforma Educativa de Historia</p>
 </footer>
 
-<!-- ================== SONIDO ================== -->
 <audio id="clickSound" src="Sonido/Sonidodeseleccionar.mp3" preload="auto"></audio>
 
 <script>
-const sonido = document.getElementById("clickSound");
 
-document.querySelectorAll(".bloque, .btn-inicio").forEach(boton=>{
-    boton.addEventListener("click", ()=>{
-        sonido.currentTime = 0;
-        sonido.volume = 0.3;
-        sonido.play();
-    });
+const sonido=document.getElementById("clickSound");
+
+document.querySelectorAll(".bloque,.btn-inicio").forEach(boton=>{
+boton.addEventListener("click",()=>{
+sonido.currentTime=0;
+sonido.volume=0.3;
+sonido.play();
+});
 });
 
-document.getElementById("btnInicio").addEventListener("click", ()=>{
-    if(!document.fullscreenElement){
-        document.documentElement.requestFullscreen().catch(()=>{});
-    }
+document.getElementById("btnInicio").addEventListener("click",()=>{
+if(!document.fullscreenElement){
+document.documentElement.requestFullscreen().catch(()=>{});
+}
 });
+
 </script>
 
 </body>
